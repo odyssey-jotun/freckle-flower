@@ -1,0 +1,10 @@
+// Cloudflare Workers config. Serves public/ as a static site; there is no worker code.
+{
+  "name": "freckle-flower",
+  "compatibility_date": "2026-09-28",
+  "assets": {
+    "directory": "./public"
+  },
+  // Gives each non-production branch, such as develop, its own preview address.
+  "preview_urls": true
+}
