@@ -274,8 +274,9 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
         btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-outline"), "marigold", "70% 40%") \
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
- + f"""<section class="party">
-<video class="party-video" autoplay muted loop playsinline poster="assets/party-poster.jpg"><source src="assets/party-toast.mp4" type="video/mp4"></video>
+ + f"""<div class="party-outer">
+<section class="party">
+<video class="party-video" muted playsinline preload="auto" poster="assets/party-poster.jpg"><source src="assets/party-toast.mp4" type="video/mp4"></video>
 <div class="confetti-layer" aria-hidden="true">{confetti}</div>
 <div class="pinata-wrap" aria-hidden="true">{burst}{PINATA}</div>
 <div class="wrap"><div class="card party-card shadow-coral">
@@ -284,6 +285,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <p class="lead">Time, space, and people who get it. Everything else is handled before anyone walks in.</p>
 </div></div>
 </section>
+</div>
 <section class="band"><div class="wrap">
 <div class="grid grid-3">
 <div class="card shadow-marigold"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 class="display">Time.</h3><p>Two full days with no meals to cook, no errands to run, and no one asking where anybody is. Morning to whenever.</p></div>

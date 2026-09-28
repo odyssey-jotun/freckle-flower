@@ -82,7 +82,8 @@ p:last-child{margin-bottom:0}
 .cta-inner h2{margin:0;max-width:760px;font-size:clamp(30px,4.2vw,50px)}
 
 /* party band */
-.party{position:relative;min-height:640px;display:flex;align-items:flex-end;padding:48px 0;overflow:hidden;background:var(--ink)}
+.party-outer{height:220vh;position:relative}
+.party{position:sticky;top:0;height:100vh;min-height:520px;display:flex;align-items:flex-end;padding:48px 0;overflow:hidden;background:var(--ink)}
 .party-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .party-card{position:relative;max-width:640px}
 .confetti-layer{position:absolute;inset:0;pointer-events:none}
@@ -93,8 +94,8 @@ p:last-child{margin-bottom:0}
 @keyframes fall{0%{transform:translate3d(0,-140px,0) rotate3d(1,1,0,0deg)}100%{transform:translate3d(0,860px,0) rotate3d(1,1,0,900deg)}}
 @keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
 @keyframes burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3)}72%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
-@media (max-width:900px){.pinata-wrap{display:none}.party{min-height:520px}}
-@media (prefers-reduced-motion:reduce){.confetti,.burst,.pinata,.badge{animation:none}.burst{display:none}}
+@media (max-width:900px){.pinata-wrap{display:none}.party-outer{height:180vh}}
+@media (prefers-reduced-motion:reduce){.confetti,.burst,.pinata,.badge{animation:none}.burst{display:none}.party-outer{height:auto}.party{position:relative;height:auto;min-height:520px}}
 
 /* guide */
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
