@@ -62,7 +62,7 @@ def head(title, desc, canonical, hero_name=None):
     pre = ""
     if hero_name:
         srcset = ", ".join(f"assets/img/{hero_name}-{x}.webp {x}w" for x in WIDE)
-        pre = f'<link rel="preload" as="image" imagesrcset="{srcset}" imagesizes="100vw" fetchpriority="high">\n'
+        pre = f'<link rel="preload" as="image" imagesrcset="{srcset}" imagesizes="(max-width: 900px) 100vw, 54vw" fetchpriority="high">\n'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -113,7 +113,7 @@ def footer():
 """
 
 def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1"):
-    img_tag = img(img_name, alt, cls="hero-img", lazy=False, style=f"object-position: {pos}")
+    img_tag = img(img_name, alt, cls="hero-img", sizes="(max-width: 900px) 100vw, 54vw", lazy=False, style=f"object-position: {pos}")
     return f"""<section class="hero">
 {img_tag}
 <div class="wrap"><div class="card hero-card shadow-{shadow}">
@@ -260,7 +260,7 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 <span class="eyebrow">Questions</span>
 <h1 class="display page-title">Everything people ask before they book.</h1>
 <p class="lead">Every retreat books at five people, happens at a venue picked for that weekend somewhere in Arkansas, and comes with a proposal that spells out what's included. Pick a weekend type below.</p>
-<div class="btn-row">
+<div class="jump">
 <a class="btn c-marigold" href="#hobby">Hobby Retreats</a>
 <a class="btn c-pink" href="#gaming">Gaming Getaways</a>
 <a class="btn c-sky" href="#corporate">Corporate Retreats</a>

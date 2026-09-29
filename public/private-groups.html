@@ -7,7 +7,7 @@
 <meta name="description" content="Private weekend bookings in Arkansas for quilt guilds, gaming groups, clubs, and friend groups. One organizer, one point of contact, the whole weekend to yourselves.">
 <meta name="theme-color" content="#FFF4E3">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" imagesrcset="assets/img/party-color-480.webp 480w, assets/img/party-color-800.webp 800w, assets/img/party-color-1200.webp 1200w, assets/img/party-color-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="assets/img/party-color-480.webp 480w, assets/img/party-color-800.webp 800w, assets/img/party-color-1200.webp 1200w, assets/img/party-color-1600.webp 1600w" imagesizes="(max-width: 900px) 100vw, 54vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:optional;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
@@ -17,10 +17,12 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,system-ui,sans-serif;font-size:17px;line-height:1.55}
 img,video{max-width:100%;display:block}
+img{height:auto}
 a{color:var(--rust-text)}
 .display{font-family:Fraunces,Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;font-weight:800;line-height:1.05}
 h1,h2,h3{margin:0}
-h2.display{font-size:clamp(32px,4.4vw,52px);margin-bottom:24px}
+h2.display{font-size:clamp(30px,4.4vw,52px);margin-bottom:24px;text-wrap:balance}
+.hero-title,.page-title{text-wrap:balance}
 h3.display{font-size:24px;margin-bottom:8px}
 p{margin:0 0 14px}
 p:last-child{margin-bottom:0}
@@ -29,6 +31,7 @@ p:last-child{margin-bottom:0}
 .lead{font-size:19px;color:var(--muted)}
 .prose{color:var(--muted);font-size:18px}
 .prose .strong,.strong{color:var(--ink);font-weight:500}
+.prose h2{color:var(--ink)}
 .eyebrow{display:inline-block;background:var(--peach);color:var(--rust-text);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
 .band-peach .eyebrow{background:var(--cream)}
 
@@ -41,7 +44,7 @@ p:last-child{margin-bottom:0}
 .menu a.active{border-bottom:2px solid var(--rust-text);padding-bottom:2px}
 .nav-toggle{display:none;background:none;border:0;width:44px;height:44px;padding:8px;cursor:pointer;flex-direction:column;justify-content:center;gap:6px}
 .nav-toggle span{display:block;height:3px;background:var(--ink);border-radius:2px}
-@media (max-width:980px){
+@media (max-width:1100px){
   .nav-toggle{display:flex}
   .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(59,42,74,.1);padding:12px 16px 20px}
   .menu.open{display:block}
@@ -60,18 +63,27 @@ p:last-child{margin-bottom:0}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
 
 /* hero */
-.hero{position:relative;min-height:640px;display:flex;align-items:center;padding:48px 0;overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-card{position:relative;max-width:620px}
-.hero-title{font-size:clamp(40px,6vw,76px);line-height:.98;margin:0 0 16px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:stretch;min-height:620px;background:var(--cream)}
+.hero-img{order:2;width:100%;height:100%;min-height:620px;object-fit:cover}
+.hero > .wrap{order:1;width:auto;margin:0;display:flex;align-items:center;padding:56px 56px 56px max(16px,calc((100vw - 1200px)/2))}
+.hero-card{position:relative;width:100%}
+.hero-title{font-size:clamp(40px,4.6vw,68px);line-height:.98;margin:0 0 16px}
 .page-title{font-size:clamp(36px,5.5vw,64px);line-height:1;margin-bottom:16px}
-@media (max-width:640px){.hero{min-height:0;padding:24px 0;align-items:flex-end}.hero-img{opacity:.9}}
+@media (max-width:900px){
+  .hero{display:block;min-height:0;padding:0 0 44px}
+  .hero-img{width:100%;height:auto;min-height:0;aspect-ratio:4/3}
+  .hero > .wrap{display:block;width:min(1200px,100% - 32px);margin-inline:auto;padding:0}
+  .hero-card{margin-top:-44px}
+  .eyebrow{font-size:12px;letter-spacing:.06em;border-radius:14px;padding:7px 12px}
+}
+@media (min-width:600px) and (max-width:900px){.hero-img{aspect-ratio:16/9}}
 
 /* cards */
 .card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
-.hero-card,.party-card{background:rgba(255,244,227,.94);padding:40px 44px}
+.hero-card{background:#fff;padding:40px 44px}
+.party-card{background:rgba(255,244,227,.94);padding:40px 44px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
 .shadow-mint{box-shadow:12px 12px 0 var(--green)}
 .shadow-pink{box-shadow:12px 12px 0 var(--pink)}
@@ -107,18 +119,25 @@ p:last-child{margin-bottom:0}
 @keyframes fall{0%{transform:translate3d(0,-140px,0) rotate3d(1,1,0,0deg)}100%{transform:translate3d(0,860px,0) rotate3d(1,1,0,900deg)}}
 @keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
 @keyframes burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3)}72%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
-@media (max-width:900px){.pinata-wrap{display:none}.party{min-height:520px}}
+@media (max-width:900px){
+  .pinata-wrap{display:none}
+  .party{display:block;min-height:0;padding:0 0 44px;background:var(--cream);overflow:visible}
+  .party-video{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:4/3}
+  .confetti-layer{bottom:auto;height:75vw;overflow:hidden}
+  .party-card{margin-top:-44px;max-width:none;background:#fff}
+}
+@media (min-width:600px) and (max-width:900px){.party-video{aspect-ratio:16/9}.confetti-layer{height:56.25vw}}
 @media (prefers-reduced-motion:reduce){.confetti,.burst,.pinata,.badge{animation:none}.burst{display:none}}
 
 /* guide */
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
 .guide-photo{position:relative}
-.guide-photo img{width:100%;max-width:380px;aspect-ratio:1;object-fit:cover;border-radius:40px;box-shadow:18px 18px 0 var(--coral)}
+.guide-photo img{width:100%;max-width:380px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:40px;box-shadow:18px 18px 0 var(--coral)}
 .badge{position:absolute;right:-8px;bottom:-14px;background:var(--green);color:var(--ink);border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;animation:wobble 2.6s ease-in-out infinite}
 @keyframes wobble{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
 .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .pills span{background:var(--cream);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
-@media (max-width:900px){.guide{grid-template-columns:1fr;gap:40px}.guide-photo img{margin:0 auto}}
+@media (max-width:900px){.guide{grid-template-columns:1fr;gap:40px}.guide-photo{max-width:340px;margin:0 auto}.guide-photo img{max-width:100%}.badge{right:-6px}}
 
 /* steps */
 .steps .step{border-top:4px solid var(--marigold);padding-top:20px}
@@ -144,7 +163,7 @@ p:last-child{margin-bottom:0}
 .faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--rust-text);flex:0 0 auto}
 .faq[open] summary::after{content:"\2013"}
 .faq p{padding:0 24px 22px;color:var(--muted);margin:0}
-.faq-img{width:100%;height:clamp(200px,32vw,380px);object-fit:cover;border-radius:32px;margin-bottom:28px}
+.faq-img{width:100%;height:clamp(200px,40vw,380px);object-fit:cover;border-radius:32px;margin-bottom:28px}
 @media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* footer */
@@ -153,6 +172,15 @@ p:last-child{margin-bottom:0}
 .footer-brand{font-size:22px;color:var(--marigold);margin-bottom:6px}
 .footer-links{display:flex;gap:18px;flex-wrap:wrap}
 .footer-links a{color:#E8DDF0;text-decoration:none}
+
+/* phone refinements */
+.jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+@media (max-width:640px){
+  .jump{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .jump .btn{padding:14px 8px;font-size:15px;text-align:center}
+  .hero-card .btn-row .btn,.cta-inner .btn{width:100%;text-align:center}
+  .cta-inner{gap:20px}
+}
 </style>
 </head>
 <body>
@@ -165,7 +193,7 @@ p:last-child{margin-bottom:0}
 </header>
 <main>
 <section class="hero">
-<img class="hero-img" src="assets/img/party-color-1600.webp" srcset="assets/img/party-color-480.webp 480w, assets/img/party-color-800.webp 800w, assets/img/party-color-1200.webp 1200w, assets/img/party-color-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Five friends laughing as a confetti popper goes off" fetchpriority="high" decoding="async" style="object-position: center 40%">
+<img class="hero-img" src="assets/img/party-color-1600.webp" srcset="assets/img/party-color-480.webp 480w, assets/img/party-color-800.webp 800w, assets/img/party-color-1200.webp 1200w, assets/img/party-color-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 54vw" width="1600" height="1067" alt="Five friends laughing as a confetti popper goes off" fetchpriority="high" decoding="async" style="object-position: center 40%">
 <div class="wrap"><div class="card hero-card shadow-mint">
 <span class="eyebrow">Private group retreats in Arkansas</span>
 <h1 class="display hero-title">Bring the group. Skip the group text.</h1>
