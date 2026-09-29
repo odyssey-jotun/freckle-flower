@@ -5,11 +5,154 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ | Freckle Flower Event Planning</title>
 <meta name="description" content="Everything people ask before booking a hobby, gaming, corporate, or private group retreat in Arkansas.">
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta name="theme-color" content="#FFF4E3">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:optional;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:optional;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
+:root{--rust-text:#9A3412;--cream:#FFF4E3;--peach:#FFE3D0;--mint:#E4F6EC;--ink:#3B2A4A;--muted:#5B4A6A;--rust:#C2410C;--marigold:#F6B93B;--coral:#FF6B6B;--green:#3ECF8E;--pink:#FF8FD8;--sky:#6FC3FF;--plum:#B8329A;--blue:#1D6FA8;--dkgreen:#1B8A5A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,system-ui,sans-serif;font-size:17px;line-height:1.55}
+img,video{max-width:100%;display:block}
+a{color:var(--rust-text)}
+.display{font-family:Fraunces,Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;font-weight:800;line-height:1.05}
+h1,h2,h3{margin:0}
+h2.display{font-size:clamp(32px,4.4vw,52px);margin-bottom:24px}
+h3.display{font-size:24px;margin-bottom:8px}
+p{margin:0 0 14px}
+p:last-child{margin-bottom:0}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+.text-rust{color:var(--rust)}.text-plum{color:var(--plum)}.text-blue{color:var(--blue)}.text-green{color:var(--dkgreen)}
+.lead{font-size:19px;color:var(--muted)}
+.prose{color:var(--muted);font-size:18px}
+.prose .strong,.strong{color:var(--ink);font-weight:500}
+.eyebrow{display:inline-block;background:var(--peach);color:var(--rust-text);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.band-peach .eyebrow{background:var(--cream)}
+
+/* nav */
+.nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(59,42,74,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:16px}
+.brand{font-size:26px;color:var(--ink);text-decoration:none}
+.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:24px;align-items:center;font-weight:500}
+.menu a{color:var(--ink);text-decoration:none}
+.menu a.active{border-bottom:2px solid var(--rust-text);padding-bottom:2px}
+.nav-toggle{display:none;background:none;border:0;width:44px;height:44px;padding:8px;cursor:pointer;flex-direction:column;justify-content:center;gap:6px}
+.nav-toggle span{display:block;height:3px;background:var(--ink);border-radius:2px}
+@media (max-width:980px){
+  .nav-toggle{display:flex}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(59,42,74,.1);padding:12px 16px 20px}
+  .menu.open{display:block}
+  .menu ul{flex-direction:column;align-items:flex-start;gap:14px}
+  .menu ul li{width:100%}.menu a{display:block;padding:8px 0;font-size:18px}
+}
+
+/* buttons */
+.btn{display:inline-block;padding:16px 28px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;color:var(--ink);border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
+.btn-accent{background:var(--marigold)}
+.btn-outline{background:transparent;border-color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.c-marigold{background:var(--marigold)}.c-pink{background:var(--pink)}.c-sky{background:var(--sky)}.c-mint{background:var(--green)}
+.menu .btn{padding:12px 22px;font-size:15px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
+
+/* hero */
+.hero{position:relative;min-height:640px;display:flex;align-items:center;padding:48px 0;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-card{position:relative;max-width:620px}
+.hero-title{font-size:clamp(40px,6vw,76px);line-height:.98;margin:0 0 16px}
+.page-title{font-size:clamp(36px,5.5vw,64px);line-height:1;margin-bottom:16px}
+@media (max-width:640px){.hero{min-height:0;padding:24px 0;align-items:flex-end}.hero-img{opacity:.9}}
+
+/* cards */
+.card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
+.card p{color:var(--muted)}
+.card svg{color:var(--ink);margin-bottom:12px}
+.hero-card,.party-card{background:rgba(255,244,227,.94);padding:40px 44px}
+.shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
+.shadow-mint{box-shadow:12px 12px 0 var(--green)}
+.shadow-pink{box-shadow:12px 12px 0 var(--pink)}
+.shadow-sky{box-shadow:12px 12px 0 var(--sky)}
+.shadow-coral{box-shadow:12px 12px 0 var(--coral)}
+.shadow-ink{box-shadow:8px 8px 0 var(--ink)}
+.card-link{text-decoration:none;background:var(--cream);display:flex;flex-direction:column;gap:6px}
+.card-link .more{font-weight:700;margin-top:auto}
+@media (max-width:640px){.card{padding:24px;border-radius:22px}.hero-card,.party-card{padding:26px 24px}}
+
+/* sections */
+.band{padding:72px 0}
+.band-peach{background:var(--peach)}.band-mint{background:var(--mint)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
+.two-col{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
+.two-col h2{margin-bottom:0}
+.grid{display:grid;gap:24px}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.two-col{grid-template-columns:1fr;gap:20px}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.band{padding:56px 0}}
+.band .btn-row{margin-top:32px}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta-inner h2{margin:0;max-width:760px;font-size:clamp(30px,4.2vw,50px)}
+
+/* party band */
+.party{position:relative;min-height:640px;display:flex;align-items:flex-end;padding:48px 0;overflow:hidden;background:var(--ink)}
+.party-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.party-card{position:relative;max-width:640px}
+.confetti-layer{position:absolute;inset:0;pointer-events:none}
+.confetti{position:absolute;top:0;border-radius:2px;animation:fall linear infinite;will-change:transform;display:block}
+.pinata-wrap{position:absolute;right:8%;top:20px;width:300px;height:460px;pointer-events:none}
+.pinata{width:300px;height:350px;overflow:visible;transform-origin:150px 0;animation:swing 3.2s ease-in-out infinite}
+.burst{position:absolute;left:50%;top:52%;width:14px;height:14px;border-radius:3px;animation:burst 5s ease-out infinite;display:block}
+@keyframes fall{0%{transform:translate3d(0,-140px,0) rotate3d(1,1,0,0deg)}100%{transform:translate3d(0,860px,0) rotate3d(1,1,0,900deg)}}
+@keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+@keyframes burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3)}72%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
+@media (max-width:900px){.pinata-wrap{display:none}.party{min-height:520px}}
+@media (prefers-reduced-motion:reduce){.confetti,.burst,.pinata,.badge{animation:none}.burst{display:none}}
+
+/* guide */
+.guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
+.guide-photo{position:relative}
+.guide-photo img{width:100%;max-width:380px;aspect-ratio:1;object-fit:cover;border-radius:40px;box-shadow:18px 18px 0 var(--coral)}
+.badge{position:absolute;right:-8px;bottom:-14px;background:var(--green);color:var(--ink);border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;animation:wobble 2.6s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pills span{background:var(--cream);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
+@media (max-width:900px){.guide{grid-template-columns:1fr;gap:40px}.guide-photo img{margin:0 auto}}
+
+/* steps */
+.steps .step{border-top:4px solid var(--marigold);padding-top:20px}
+.step-mint{border-top-color:var(--green)!important}.step-pink{border-top-color:var(--pink)!important}
+.step .num{font-size:64px;line-height:1;margin-bottom:8px}
+.step h3{font-size:24px;margin-bottom:8px}
+.step p{color:var(--muted)}
+
+/* lead form */
+.lead-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:44px 52px}
+.lead-card h2{font-size:clamp(26px,3vw,34px)}
+.form{display:flex;flex-direction:column;gap:10px}
+.form label{font-size:14px;font-weight:700}
+.form input,.form select{font:inherit;padding:13px 16px;border-radius:12px;border:2px solid var(--ink);background:var(--cream);color:var(--ink);width:100%}
+.form .btn{align-self:flex-start;margin-top:8px}
+@media (max-width:900px){.lead-card{grid-template-columns:1fr;gap:24px;padding:28px}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.faq{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:0}
+.faq summary{cursor:pointer;padding:20px 24px;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--rust-text);flex:0 0 auto}
+.faq[open] summary::after{content:"\2013"}
+.faq p{padding:0 24px 22px;color:var(--muted);margin:0}
+.faq-img{width:100%;height:clamp(200px,32vw,380px);object-fit:cover;border-radius:32px;margin-bottom:28px}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+
+/* footer */
+.footer{background:var(--ink);color:#E8DDF0;padding:40px 0;font-size:15px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer-brand{font-size:22px;color:var(--marigold);margin-bottom:6px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#E8DDF0;text-decoration:none}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -19,6 +162,7 @@
 <nav id="menu" class="menu"><ul><li><a href="hobby-retreats.html">Hobby Retreats</a></li><li><a href="gaming-getaways.html">Gaming Getaways</a></li><li><a href="corporate-retreats.html">Corporate Retreats</a></li><li><a href="private-groups.html">Private Groups</a></li><li><a href="index.html#nikki">Nikki</a></li><li><a href="faq.html" class=active>FAQ</a></li><li><a class="btn btn-accent" href="index.html#book">Book a Weekend</a></li></ul></nav>
 </div>
 </header>
+<main>
 <section class="band band-peach"><div class="wrap">
 <span class="eyebrow">Questions</span>
 <h1 class="display page-title">Everything people ask before they book.</h1>
@@ -31,21 +175,22 @@
 </div>
 </div></section>
 <section id="hobby" class="band"><div class="wrap">
-<img class="faq-img shadow-marigold" src="assets/hero-sewing.jpg" alt="A woman smiling at her sewing machine" style="object-position: 70% 40%" loading="lazy">
+<img class="faq-img shadow-marigold" src="assets/img/hero-sewing-1600.webp" srcset="assets/img/hero-sewing-480.webp 480w, assets/img/hero-sewing-800.webp 800w, assets/img/hero-sewing-1200.webp 1200w, assets/img/hero-sewing-1600.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" width="1600" height="1067" alt="A woman smiling at her sewing machine" loading="lazy" decoding="async" style="object-position: 70% 40%">
 <h2 class="display">Hobby Retreats</h2><div class="faq-grid"><details class="faq"><summary>Is there a minimum number of people?</summary><p>Yes. A retreat books at five. Get five people together, pick a weekend, and it's on.</p></details><details class="faq"><summary>What does a weekend cost?</summary><p>Every weekend is priced for the group. Headcount, the venue, and what the room needs all move the number, so the quote comes after a quick conversation and lands in the proposal.</p></details><details class="faq"><summary>What should I bring to a quilting or craft retreat?</summary><p>The project, the machine, and the tools you actually use. What Nikki sets up, tables, lighting, ironing and cutting stations, is listed in the proposal so nothing gets packed twice.</p></details><details class="faq"><summary>Do I have to bring my own sewing machine?</summary><p>Yes. Bring the machine you know. There will be a table, an outlet, and light waiting for it.</p></details><details class="faq"><summary>Can I come by myself?</summary><p>Retreats book at five, so bring the guild, the sewing circle, or four friends who've been meaning to. Solo quilters get on the list and hear first when an open weekend has room.</p></details><details class="faq"><summary>Is there a schedule or a class?</summary><p>Only if the group wants one. Nikki plans the weekend around the room: open sewing the whole time, one demo on Saturday, or whatever the group asks for.</p></details><details class="faq"><summary>Is food included?</summary><p>Snacks and drinks, yes. Nikki stocks the weekend with what's listed in the proposal. Meals work like the venue: catering is arranged for that weekend, and the proposal says what's on the table and when.</p></details><details class="faq"><summary>Do we sleep there?</summary><p>Depends on the venue. Some retreats are at a house with beds for everyone. Some are at a workspace with lodging nearby. The proposal says which.</p></details><details class="faq"><summary>What are the house rules?</summary><p>Every venue has its own. Check-in, quiet hours, parking, pets, all of it comes from the property and gets passed along in the proposal so nothing is a surprise.</p></details><details class="faq"><summary>What if someone has to cancel?</summary><p>Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.</p></details></div>
 </div></section>
 <section id="gaming" class="band"><div class="wrap">
-<img class="faq-img shadow-marigold" src="assets/dice.jpg" alt="Polyhedral dice and painted miniatures on a fantasy map" style="object-position: center 45%" loading="lazy">
+<img class="faq-img shadow-marigold" src="assets/img/dice-1600.webp" srcset="assets/img/dice-480.webp 480w, assets/img/dice-800.webp 800w, assets/img/dice-1200.webp 1200w, assets/img/dice-1600.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" width="1600" height="1201" alt="Polyhedral dice and painted miniatures on a fantasy map" loading="lazy" decoding="async" style="object-position: center 45%">
 <h2 class="display">Gaming Getaways</h2><div class="faq-grid"><details class="faq"><summary>What can we play?</summary><p>Anything that fits on a table. Warhammer, Magic, D&amp;D, Pathfinder, board games, whatever the group brings.</p></details><details class="faq"><summary>Is there a minimum number of people?</summary><p>Yes. A retreat books at five. Get five people together, pick a weekend, and it's on.</p></details><details class="faq"><summary>What does a weekend cost?</summary><p>Every weekend is priced for the group. Headcount, the venue, and what the room needs all move the number, so the quote comes after a quick conversation and lands in the proposal.</p></details><details class="faq"><summary>Do you provide tables and terrain?</summary><p>Nikki sets up the tables and whatever the group needs for its game, as listed in the proposal. Bring the terrain the campaign depends on and say so up front, so the room is ready for it.</p></details><details class="faq"><summary>Is there a painting station?</summary><p>If the group wants one, it goes in the proposal: light, water, and drying space. Bring the paints and the army.</p></details><details class="faq"><summary>Can a game stay set up overnight?</summary><p>Depends on the venue, and most will let a table sit. Say it matters and Nikki picks a place where the game can stay up until breakfast.</p></details><details class="faq"><summary>What about food during a long game?</summary><p>Snacks and drinks are stocked so nobody has to leave the table. Catering works like the venue: arranged for that weekend, timed around the game, and spelled out in the proposal.</p></details><details class="faq"><summary>Do we sleep there?</summary><p>Depends on the venue. Some retreats are at a house with beds for everyone. Some are at a workspace with lodging nearby. The proposal says which.</p></details><details class="faq"><summary>What are the house rules?</summary><p>Every venue has its own. Check-in, quiet hours, parking, pets, all of it comes from the property and gets passed along in the proposal so nothing is a surprise.</p></details><details class="faq"><summary>What if someone has to cancel?</summary><p>Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.</p></details></div>
 </div></section>
 <section id="corporate" class="band"><div class="wrap">
-<img class="faq-img shadow-marigold" src="assets/corporate.jpg" alt="A team working through sticky notes on a glass wall" style="object-position: center 45%" loading="lazy">
+<img class="faq-img shadow-marigold" src="assets/img/corporate-1600.webp" srcset="assets/img/corporate-480.webp 480w, assets/img/corporate-800.webp 800w, assets/img/corporate-1200.webp 1200w, assets/img/corporate-1600.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" width="1600" height="1067" alt="A team working through sticky notes on a glass wall" loading="lazy" decoding="async" style="object-position: center 45%">
 <h2 class="display">Corporate Retreats</h2><div class="faq-grid"><details class="faq"><summary>How many people can a corporate retreat hold?</summary><p>Retreats run for teams of five or more. Say the headcount up front and Nikki picks a venue that fits it.</p></details><details class="faq"><summary>What's included?</summary><p>A venue picked for the team, the room set to the agenda, snacks and drinks stocked, a run-of-show, and Nikki on site running the clock. Catering and lodging are arranged per retreat and spelled out in the proposal.</p></details><details class="faq"><summary>What does a corporate retreat cost?</summary><p>Every retreat is built and priced for the team. Headcount, length, venue, and the agenda all shape it, so pricing comes with the proposal.</p></details><details class="faq"><summary>Can we bring our own agenda or facilitator?</summary><p>Yes. The team owns the content. Nikki owns the logistics and the clock.</p></details><details class="faq"><summary>Is there AV?</summary><p>Depends on the venue. Say what the agenda needs, projector, screens, whiteboards, wifi, and Nikki picks a place that has it or brings it in. It's all in the proposal.</p></details><details class="faq"><summary>Do you offer group training or team building?</summary><p>Not personally. I run the retreat. I do have a few facilitators I collaborate with all the time, and if the team wants training or team building built into the weekend, say so and I'll recommend a few.</p></details><details class="faq"><summary>What do people do in the evenings?</summary><p>Whatever they want. Game night, a craft workshop, or nothing at all. No trust falls.</p></details><details class="faq"><summary>How far ahead should we book?</summary><p>As early as the calendar allows. A retreat is planned like a production, and the run-of-show takes a few weeks to build.</p></details><details class="faq"><summary>Where is it?</summary><p>At a venue picked for the team, somewhere in Arkansas. The proposal names the place.</p></details><details class="faq"><summary>What if someone has to cancel?</summary><p>Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.</p></details></div>
 </div></section>
 <section id="private" class="band"><div class="wrap">
-<img class="faq-img shadow-marigold" src="assets/party-color.jpg" alt="Friends laughing as confetti falls" style="object-position: center 45%" loading="lazy">
+<img class="faq-img shadow-marigold" src="assets/img/party-color-1600.webp" srcset="assets/img/party-color-480.webp 480w, assets/img/party-color-800.webp 800w, assets/img/party-color-1200.webp 1200w, assets/img/party-color-1600.webp 1600w" sizes="(max-width: 1232px) calc(100vw - 32px), 1200px" width="1600" height="1067" alt="Friends laughing as confetti falls" loading="lazy" decoding="async" style="object-position: center 45%">
 <h2 class="display">Private Groups</h2><div class="faq-grid"><details class="faq"><summary>Is there a minimum number of people?</summary><p>Yes. A retreat books at five. Get five people together, pick a weekend, and it's on.</p></details><details class="faq"><summary>How does booking work?</summary><p>One organizer picks the weekend and becomes the single point of contact. Nikki sends the proposal, the organizer says yes, and everyone else just shows up.</p></details><details class="faq"><summary>What does a private weekend cost?</summary><p>Every private weekend is priced for the group. Headcount, the venue, and the setup all move the number, so the quote follows a quick conversation with the organizer.</p></details><details class="faq"><summary>Do we get the whole place?</summary><p>Yes. A private booking is the group's weekend. Nobody else is on the calendar.</p></details><details class="faq"><summary>Can the group mix hobbies?</summary><p>Yes. Quilters at one table, painters at another, a board game at a third.</p></details><details class="faq"><summary>Are dietary needs handled?</summary><p>The organizer sends the group's needs ahead of time, and the snack list and the catering in the proposal are built around them.</p></details><details class="faq"><summary>How long is the weekend?</summary><p>Most run Friday afternoon to Sunday afternoon, but the group picks. The proposal sets the dates and times.</p></details><details class="faq"><summary>Do we sleep there?</summary><p>Depends on the venue. Some retreats are at a house with beds for everyone. Some are at a workspace with lodging nearby. The proposal says which.</p></details><details class="faq"><summary>What are the house rules?</summary><p>Every venue has its own. Check-in, quiet hours, parking, pets, all of it comes from the property and gets passed along in the proposal so nothing is a surprise.</p></details><details class="faq"><summary>What if someone has to cancel?</summary><p>Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.</p></details></div>
 </div></section>
+</main>
 <footer class="footer">
 <div class="wrap footer-inner">
 <div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div>

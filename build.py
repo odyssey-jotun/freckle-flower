@@ -5,6 +5,8 @@ sys.path.insert(0, "/private/tmp/claude-501/-Users-marcgray/d55a993a-88e8-4ab4-b
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PUB = os.path.join(ROOT, "public")
 
+WIDE = [480, 800, 1200, 1600]
+
 # ---------------- FAQ content ----------------
 MIN_Q = ("Is there a minimum number of people?", "Yes. A retreat books at five. Get five people together, pick a weekend, and it's on.")
 REFUND_Q = ("What if someone has to cancel?", "Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.")
@@ -52,7 +54,15 @@ FAQ = {
 
 NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-pink"),("corporate-retreats.html","Corporate Retreats","c-sky"),("private-groups.html","Private Groups","c-mint"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
 
-def head(title, desc, canonical):
+FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:optional;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:optional;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
+"""
+def head(title, desc, canonical, hero_name=None):
+    css = open(os.path.join(PUB, "styles.css")).read()
+    pre = ""
+    if hero_name:
+        srcset = ", ".join(f"assets/img/{hero_name}-{x}.webp {x}w" for x in WIDE)
+        pre = f'<link rel="preload" as="image" imagesrcset="{srcset}" imagesizes="100vw" fetchpriority="high">\n'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -60,14 +70,20 @@ def head(title, desc, canonical):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta name="theme-color" content="#FFF4E3">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+{pre}<link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>{FONT_CSS}{css}</style>
 </head>
 <body>
 """
+
+def img(name, alt, widths=WIDE, sizes="100vw", cls="", w=1600, h=1067, lazy=True, style=""):
+    srcset = ", ".join(f"assets/img/{name}-{x}.webp {x}w" for x in widths)
+    prio = 'loading="lazy" decoding="async"' if lazy else 'fetchpriority="high" decoding="async"'
+    st = f' style="{style}"' if style else ""
+    return f'<img class="{cls}" src="assets/img/{name}-{widths[-1]}.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{alt}" {prio}{st}>'
 
 def nav(active):
     links = "".join(f'<li><a href="{h}"{" class=active" if h==active else ""}>{l}</a></li>' for h,l,_ in NAV)
@@ -78,11 +94,13 @@ def nav(active):
 <nav id="menu" class="menu"><ul>{links}<li><a class="btn btn-accent" href="index.html#book">Book a Weekend</a></li></ul></nav>
 </div>
 </header>
+<main>
 """
 
 def footer():
     links = "".join(f'<a href="{h}">{l}</a>' for h,l,_ in NAV)
-    return f"""<footer class="footer">
+    return f"""</main>
+<footer class="footer">
 <div class="wrap footer-inner">
 <div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div>
 <nav class="footer-links">{links}</nav>
@@ -94,9 +112,10 @@ def footer():
 </html>
 """
 
-def hero(img, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1"):
+def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1"):
+    img_tag = img(img_name, alt, cls="hero-img", lazy=False, style=f"object-position: {pos}")
     return f"""<section class="hero">
-<img class="hero-img" src="assets/{img}" alt="{alt}" style="object-position: {pos}">
+{img_tag}
 <div class="wrap"><div class="card hero-card shadow-{shadow}">
 <span class="eyebrow">{eyebrow}</span>
 <{tag} class="display hero-title">{h1}</{tag}>
@@ -150,13 +169,13 @@ def write(name, html):
     print("wrote", name)
 
 def service(fname, title, desc, key, img, alt, eyebrow, h1, sub, cta1, cta2, st_h2, st_ps, inc, who_h2, who_text, faq_h2, cta_h2, cta_label, shadow, pos="center 40%"):
-    html = head(title, desc, fname) + nav(fname) + hero(img, alt, eyebrow, h1, sub, btn("#book", cta1), btn("faq.html", cta2, "btn-outline"), shadow, pos) \
+    html = head(title, desc, fname, hero_name=img) + nav(fname) + hero(img, alt, eyebrow, h1, sub, btn("#book", cta1), btn("faq.html", cta2, "btn-outline"), shadow, pos) \
         + stakes(st_h2, st_ps) + included("What's included", inc) + who(who_h2, who_text) + faq_section(faq_h2, FAQ[key]) + cta_band(cta_h2, cta_label) + footer()
     write(fname, html)
 
 service("hobby-retreats.html", "Quilting, Sewing, and Craft Retreats in Arkansas | Freckle Flower Event Planning",
   "Weekend quilting, sewing, scrapbooking, and craft retreats in Arkansas. A venue picked for the weekend, tables set, snacks stocked. Books at five people.",
-  "hobby", "hero-sewing.jpg", "A woman smiling at her sewing machine in a bright studio",
+  "hobby", "hero-sewing", "A woman smiling at her sewing machine in a bright studio",
   "Quilting, sewing, and craft retreats in Arkansas", "Forty-eight hours with the project.",
   "Weekend retreats in Arkansas for quilters, sewists, scrapbookers, knitters, and anyone with a craft that keeps losing to the calendar. A venue picked for the weekend, tables set, snacks stocked, and a room full of people who get it.",
   "Book a Craft Weekend", "Read the FAQ",
@@ -175,7 +194,7 @@ service("hobby-retreats.html", "Quilting, Sewing, and Craft Retreats in Arkansas
 
 service("gaming-getaways.html", "Tabletop Gaming Retreats in Arkansas | Freckle Flower Event Planning",
   "Weekend tabletop gaming getaways in Arkansas for Warhammer, Magic, D&D, and board game groups. The venue, the tables, and the snacks are handled. Books at five.",
-  "gaming", "boardgame.jpg", "Four friends leaning over a board game at a wooden table",
+  "gaming", "boardgame", "Four friends leaning over a board game at a wooden table",
   "Tabletop gaming retreats in Arkansas", "The campaign finally gets past session three.",
   "Weekend getaways in Arkansas for tabletop gamers. Warhammer, Magic, D&amp;D, board games, whatever the group plays. The venue, the tables, and the snacks are handled. The only thing anyone has to bring is the army.",
   "Book a Gaming Weekend", "Read the FAQ",
@@ -194,7 +213,7 @@ service("gaming-getaways.html", "Tabletop Gaming Retreats in Arkansas | Freckle 
 
 service("corporate-retreats.html", "Corporate Retreats in Arkansas | Freckle Flower Event Planning",
   "Corporate retreats in Arkansas planned and run by a twenty-year theatre production veteran. A venue that fits the team, a room set to the agenda, and a schedule that holds.",
-  "corporate", "corporate.jpg", "A team of four working through sticky notes on a glass wall",
+  "corporate", "corporate", "A team of four working through sticky notes on a glass wall",
   "Corporate retreats in Arkansas", "An offsite run like opening night.",
   "Corporate retreats in Arkansas, planned and run by a twenty-year theatre production veteran. A venue that fits the team, a room set to the agenda, and a schedule that holds.",
   "Request a Proposal", "Read the FAQ",
@@ -213,7 +232,7 @@ service("corporate-retreats.html", "Corporate Retreats in Arkansas | Freckle Flo
 
 service("private-groups.html", "Private Group Retreats in Arkansas | Freckle Flower Event Planning",
   "Private weekend bookings in Arkansas for quilt guilds, gaming groups, clubs, and friend groups. One organizer, one point of contact, the whole weekend to yourselves.",
-  "private", "party-color.jpg", "Five friends laughing as a confetti popper goes off",
+  "private", "party-color", "Five friends laughing as a confetti popper goes off",
   "Private group retreats in Arkansas", "Bring the group. Skip the group text.",
   "Private weekend bookings in Arkansas for quilt guilds, gaming groups, clubs, and friend groups who want a retreat without one person doing all the planning.",
   "Book a Private Weekend", "Read the FAQ",
@@ -231,9 +250,9 @@ service("private-groups.html", "Private Group Retreats in Arkansas | Freckle Flo
   "Private group questions", "The group is ready. The planner is tired. Book the weekend.", "Book a Private Weekend", "mint")
 
 # ---------------- FAQ page ----------------
-def faq_block(anchor, img, alt, h2, items, pos="center 45%"):
+def faq_block(anchor, img_name, alt, h2, items, pos="center 45%"):
     return f"""<section id="{anchor}" class="band"><div class="wrap">
-<img class="faq-img shadow-marigold" src="assets/{img}" alt="{alt}" style="object-position: {pos}" loading="lazy">
+{img(img_name, alt, cls="faq-img shadow-marigold", sizes="(max-width: 1232px) calc(100vw - 32px), 1200px", w=1600, h=(1201 if img_name=="dice" else 1067), style=f"object-position: {pos}")}
 <h2 class="display">{h2}</h2><div class="faq-grid">{faq_items(items)}</div>
 </div></section>
 """
@@ -248,10 +267,10 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 <a class="btn c-mint" href="#private">Private Groups</a>
 </div>
 </div></section>
-""" + faq_block("hobby","hero-sewing.jpg","A woman smiling at her sewing machine","Hobby Retreats",FAQ["hobby"],"70% 40%") \
-  + faq_block("gaming","dice.jpg","Polyhedral dice and painted miniatures on a fantasy map","Gaming Getaways",FAQ["gaming"]) \
-  + faq_block("corporate","corporate.jpg","A team working through sticky notes on a glass wall","Corporate Retreats",FAQ["corporate"]) \
-  + faq_block("private","party-color.jpg","Friends laughing as confetti falls","Private Groups",FAQ["private"]) + footer()
+""" + faq_block("hobby","hero-sewing","A woman smiling at her sewing machine","Hobby Retreats",FAQ["hobby"],"70% 40%") \
+  + faq_block("gaming","dice","Polyhedral dice and painted miniatures on a fantasy map","Gaming Getaways",FAQ["gaming"]) \
+  + faq_block("corporate","corporate","A team working through sticky notes on a glass wall","Corporate Retreats",FAQ["corporate"]) \
+  + faq_block("private","party-color","Friends laughing as confetti falls","Private Groups",FAQ["private"]) + footer()
 write("faq.html", faq_html)
 
 # ---------------- Home ----------------
@@ -267,15 +286,15 @@ PINATA = """<svg class="pinata" viewBox="0 0 380 440" aria-hidden="true">
 <path d="M160 254 Q190 282 220 254" stroke="#3B2A4A" stroke-width="6" fill="none" stroke-linecap="round"/>
 </svg>"""
 
-home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html") + nav("index.html") \
- + hero("hero-sewing.jpg", "A woman smiling at her sewing machine in a bright studio, spools of colored thread on the table", "Weekend retreats in Arkansas",
+home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="hero-sewing") + nav("index.html") \
+ + hero("hero-sewing", "A woman smiling at her sewing machine in a bright studio, spools of colored thread on the table", "Weekend retreats in Arkansas",
         'The hobby gets a <span class="text-rust">whole</span> weekend.',
         "Weekend retreats in Arkansas for people who have something they love and no time to do it. A venue picked for the weekend, snacks stocked, setup done, and a room full of people who came for the same reason. Nothing on the schedule but the thing itself.",
         btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-outline"), "marigold", "70% 40%") \
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">
-<video class="party-video" autoplay muted loop playsinline poster="assets/party-poster.jpg"><source src="assets/party-toast.mp4" type="video/mp4"></video>
+<video class="party-video" muted loop playsinline preload="none" poster="assets/img/party-poster-1200.webp" data-src="assets/party-toast.mp4" aria-hidden="true"></video>
 <div class="confetti-layer" aria-hidden="true">{confetti}</div>
 <div class="pinata-wrap" aria-hidden="true">{burst}{PINATA}</div>
 <div class="wrap"><div class="card party-card shadow-coral">
@@ -302,7 +321,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 </div>
 </div></section>
 <section id="nikki" class="band band-peach"><div class="wrap guide">
-<div class="guide-photo"><img src="assets/nikki-headshot.jpg" alt="Nikki, smiling, red curly hair, olive jacket" loading="lazy"><span class="badge">Nikki, Freckle Flower</span></div>
+<div class="guide-photo">{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="380px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
 <div class="prose">
 <h2 class="display">Twenty years of costumes, one very neglected garden.</h2>
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
