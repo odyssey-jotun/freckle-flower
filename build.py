@@ -274,18 +274,6 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 write("faq.html", faq_html)
 
 # ---------------- Home ----------------
-confetti = "".join(f'<i class="confetti" style="left:{(i*9301+49297)%233280/2332.8:.1f}%;width:{7+((i*7919+104729)%233280)/233280*8:.0f}px;height:{10+((i*1327+65537)%233280)/233280*12:.0f}px;background:{["#F6B93B","#FF6B6B","#3ECF8E","#FF8FD8","#6FC3FF","#FFF4E3"][i%6]};animation-duration:{7+((i*7919+104729)%233280)/233280*7:.1f}s;animation-delay:{-((i*1327+65537)%233280)/233280*14:.1f}s"></i>' for i in range(40))
-import math
-burst = "".join(f'<i class="burst" style="background:{["#F6B93B","#FF6B6B","#3ECF8E","#FF8FD8","#6FC3FF","#FFF4E3"][j%6]};--dx:{round(math.cos(j/18*math.pi*2)*(150+(j%3)*60))}px;--dy:{round(math.sin(j/18*math.pi*2)*(150+(j%3)*60))}px;animation-delay:{(j%4)*0.06:.2f}s"></i>' for j in range(18))
-PINATA = """<svg class="pinata" viewBox="0 0 380 440" aria-hidden="true">
-<line x1="190" y1="0" x2="190" y2="74" stroke="#FFF4E3" stroke-width="3" stroke-dasharray="6 6"/>
-<defs><clipPath id="starclip"><polygon points="190,74 234,176 346,186 262,262 288,374 190,316 92,374 118,262 34,186 146,176"/></clipPath></defs>
-<g clip-path="url(#starclip)"><rect x="0" y="60" width="380" height="54" fill="#FF6B6B"/><rect x="0" y="114" width="380" height="54" fill="#F6B93B"/><rect x="0" y="168" width="380" height="54" fill="#3ECF8E"/><rect x="0" y="222" width="380" height="54" fill="#FF8FD8"/><rect x="0" y="276" width="380" height="54" fill="#6FC3FF"/><rect x="0" y="330" width="380" height="60" fill="#FF6B6B"/></g>
-<polygon points="190,74 234,176 346,186 262,262 288,374 190,316 92,374 118,262 34,186 146,176" fill="none" stroke="#FFF4E3" stroke-width="12" stroke-dasharray="3 9" stroke-linecap="round"/>
-<circle cx="164" cy="222" r="7" fill="#3B2A4A"/><circle cx="216" cy="222" r="7" fill="#3B2A4A"/>
-<path d="M160 254 Q190 282 220 254" stroke="#3B2A4A" stroke-width="6" fill="none" stroke-linecap="round"/>
-</svg>"""
-
 home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="hero-sewing") + nav("index.html") \
  + hero("hero-sewing", "A woman smiling at her sewing machine in a bright studio, spools of colored thread on the table", "Weekend retreats in Arkansas",
         'The hobby gets a <span class="text-rust">whole</span> weekend.',
@@ -294,9 +282,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">
-<video class="party-video" muted loop playsinline preload="none" poster="assets/img/party-poster-1200.webp" data-src="assets/party-toast.mp4" aria-hidden="true"></video>
-<div class="confetti-layer" aria-hidden="true">{confetti}</div>
-<div class="pinata-wrap" aria-hidden="true">{burst}{PINATA}</div>
+<video class="party-video" muted loop playsinline preload="none" poster="assets/img/group-poster-1280.webp" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4" aria-hidden="true"></video>
 <div class="wrap"><div class="card party-card shadow-coral">
 <span class="eyebrow">The good part</span>
 <h2 class="display">Two days without a to-do list.</h2>

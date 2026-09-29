@@ -69,7 +69,6 @@ p:last-child{margin-bottom:0}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
 .hero-card{background:#fff;padding:40px 44px}
-.party-card{background:rgba(255,244,227,.94);padding:40px 44px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
 .shadow-mint{box-shadow:12px 12px 0 var(--green)}
 .shadow-pink{box-shadow:12px 12px 0 var(--pink)}
@@ -93,27 +92,13 @@ p:last-child{margin-bottom:0}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .cta-inner h2{margin:0;max-width:760px;font-size:clamp(30px,4.2vw,50px)}
 
-/* party band */
-.party{position:relative;min-height:640px;display:flex;align-items:flex-end;padding:48px 0;overflow:hidden;background:var(--ink)}
-.party-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.party-card{position:relative;max-width:640px}
-.confetti-layer{position:absolute;inset:0;pointer-events:none}
-.confetti{position:absolute;top:0;border-radius:2px;animation:fall linear infinite;will-change:transform;display:block}
-.pinata-wrap{position:absolute;right:8%;top:20px;width:300px;height:460px;pointer-events:none}
-.pinata{width:300px;height:350px;overflow:visible;transform-origin:150px 0;animation:swing 3.2s ease-in-out infinite}
-.burst{position:absolute;left:50%;top:52%;width:14px;height:14px;border-radius:3px;animation:burst 5s ease-out infinite;display:block}
-@keyframes fall{0%{transform:translate3d(0,-140px,0) rotate3d(1,1,0,0deg)}100%{transform:translate3d(0,860px,0) rotate3d(1,1,0,900deg)}}
-@keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
-@keyframes burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3)}72%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.6)}}
-@media (max-width:900px){
-  .pinata-wrap{display:none}
-  .party{display:block;min-height:0;padding:0 0 44px;background:var(--cream);overflow:visible}
-  .party-video{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:4/3}
-  .confetti-layer{bottom:auto;height:75vw;overflow:hidden}
-  .party-card{margin-top:-44px;max-width:none;background:#fff}
-}
-@media (min-width:600px) and (max-width:900px){.party-video{aspect-ratio:16/9}.confetti-layer{height:56.25vw}}
-@media (prefers-reduced-motion:reduce){.confetti,.burst,.pinata,.badge{animation:none}.burst{display:none}}
+/* group video band: video on top, card overlapping its bottom edge */
+.party{position:relative;padding:0 0 56px;background:var(--cream)}
+.party-video{width:100%;height:min(68vh,640px);min-height:320px;object-fit:cover;object-position:center 30%}
+.party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
+@media (max-width:900px){.party{padding-bottom:44px}.party-video{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
+@media (min-width:600px) and (max-width:900px){.party-video{aspect-ratio:16/9}}
+@media (prefers-reduced-motion:reduce){.badge{animation:none}}
 
 /* guide */
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}

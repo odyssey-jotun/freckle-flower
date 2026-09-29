@@ -4,7 +4,7 @@ Static marketing site for Nikki's weekend retreat business in Arkansas: hobby re
 
 ## Layout
 
-- `public/` is the published site. Six pages, one small script, and `assets/` for fonts, responsive WebP images (`assets/img/`), and the party video. `styles.css` is inlined into every page at build time, so edit it and rebuild.
+- `public/` is the published site. Six pages, one small script, and `assets/` for fonts, responsive WebP images (`assets/img/`), and the home page video. `styles.css` is inlined into every page at build time, so edit it and rebuild.
 - `build.py` generates the six HTML files in `public/` from the copy inside it. Edit the copy there, run `python3 build.py`, commit the output. Hand-editing the HTML works too, but the next build overwrites it.
 - `copy/copy.md` is the source copy and FAQ, mirrored from the design canvas.
 - `wrangler.jsonc` serves `public/` as static assets on a Cloudflare Worker. No worker code.
