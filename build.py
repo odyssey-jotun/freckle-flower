@@ -54,8 +54,8 @@ FAQ = {
 
 NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-pink"),("corporate-retreats.html","Corporate Retreats","c-sky"),("private-groups.html","Private Groups","c-mint"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
 
-FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:optional;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
-@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:optional;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
+FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
 """
 def head(title, desc, canonical, hero_name=None, hero_sizes="(max-width: 900px) 100vw, 54vw"):
     css = open(os.path.join(PUB, "styles.css")).read()
@@ -315,7 +315,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 </div>
 </div></section>
 <section id="nikki" class="band band-peach"><div class="wrap guide">
-<div class="guide-photo">{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="380px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
+<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#F6B93B"/><circle cx="146.7" cy="146.7" r="33" fill="#FF8FD8"/><circle cx="100.0" cy="166.0" r="33" fill="#6FC3FF"/><circle cx="53.3" cy="146.7" r="33" fill="#3ECF8E"/><circle cx="34.0" cy="100.0" r="33" fill="#FF6B6B"/><circle cx="53.3" cy="53.3" r="33" fill="#F6B93B"/><circle cx="100.0" cy="34.0" r="33" fill="#FF8FD8"/><circle cx="146.7" cy="53.3" r="33" fill="#3ECF8E"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
 <div class="prose">
 <h2 class="display">Twenty years of costumes, one very neglected garden.</h2>
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
