@@ -108,10 +108,13 @@ p:last-child{margin-bottom:0}
 
 /* group video band: video on top, card overlapping its bottom edge */
 .party{position:relative;padding:0 0 56px;background:var(--cream)}
-.party-video{width:100%;height:min(68vh,640px);min-height:320px;object-fit:cover;object-position:center 30%}
+.party-media{position:relative;width:100%;height:min(68vh,640px);min-height:320px;overflow:hidden;background:var(--peach)}
+.party-poster,.party-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}
+.party-video{opacity:0;transition:opacity .9s ease}
+.party-video.is-on{opacity:1}
 .party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
-@media (max-width:900px){.party{padding-bottom:44px}.party-video{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
-@media (min-width:600px) and (max-width:900px){.party-video{aspect-ratio:16/9}}
+@media (max-width:900px){.party{padding-bottom:44px}.party-media{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
+@media (min-width:600px) and (max-width:900px){.party-media{aspect-ratio:16/9}}
 @media (prefers-reduced-motion:reduce){.badge{animation:none}}
 
 /* guide */
@@ -161,6 +164,7 @@ p:last-child{margin-bottom:0}
 /* phone refinements */
 .jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 @media (max-width:640px){
+  .party-card{padding:26px 24px}
   .jump{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .jump .btn{padding:14px 8px;font-size:15px;text-align:center}
   .hero-card .btn-row .btn,.cta-inner .btn{width:100%;text-align:center}
@@ -190,7 +194,11 @@ p:last-child{margin-bottom:0}
 <h2 class="display text-rust">Most hobbies die of scheduling.</h2><div class="prose"><p>The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.</p><p><strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't.</p></div>
 </div></section>
 <section class="party">
-<video class="party-video" muted loop playsinline preload="none" poster="assets/img/group-poster-1280.webp" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4" aria-hidden="true"></video>
+<div class="party-media" aria-hidden="true">
+<img class="party-poster" src="assets/img/craft-poster-1280.webp" srcset="assets/img/craft-poster-800.webp 800w, assets/img/craft-poster-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+<video class="party-video" muted playsinline preload="none" data-src="assets/craft-720.mp4" data-src-small="assets/craft-540.mp4"></video>
+<video class="party-video" muted playsinline preload="none" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4"></video>
+</div>
 <div class="wrap"><div class="card party-card shadow-coral">
 <span class="eyebrow">The good part</span>
 <h2 class="display">Two days without a to-do list.</h2>

@@ -282,7 +282,11 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">
-<video class="party-video" muted loop playsinline preload="none" poster="assets/img/group-poster-1280.webp" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4" aria-hidden="true"></video>
+<div class="party-media" aria-hidden="true">
+<img class="party-poster" src="assets/img/craft-poster-1280.webp" srcset="assets/img/craft-poster-800.webp 800w, assets/img/craft-poster-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
+<video class="party-video" muted playsinline preload="none" data-src="assets/craft-720.mp4" data-src-small="assets/craft-540.mp4"></video>
+<video class="party-video" muted playsinline preload="none" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4"></video>
+</div>
 <div class="wrap"><div class="card party-card shadow-coral">
 <span class="eyebrow">The good part</span>
 <h2 class="display">Two days without a to-do list.</h2>

@@ -107,10 +107,13 @@ p:last-child{margin-bottom:0}
 
 /* group video band: video on top, card overlapping its bottom edge */
 .party{position:relative;padding:0 0 56px;background:var(--cream)}
-.party-video{width:100%;height:min(68vh,640px);min-height:320px;object-fit:cover;object-position:center 30%}
+.party-media{position:relative;width:100%;height:min(68vh,640px);min-height:320px;overflow:hidden;background:var(--peach)}
+.party-poster,.party-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}
+.party-video{opacity:0;transition:opacity .9s ease}
+.party-video.is-on{opacity:1}
 .party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
-@media (max-width:900px){.party{padding-bottom:44px}.party-video{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
-@media (min-width:600px) and (max-width:900px){.party-video{aspect-ratio:16/9}}
+@media (max-width:900px){.party{padding-bottom:44px}.party-media{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
+@media (min-width:600px) and (max-width:900px){.party-media{aspect-ratio:16/9}}
 @media (prefers-reduced-motion:reduce){.badge{animation:none}}
 
 /* guide */
@@ -160,6 +163,7 @@ p:last-child{margin-bottom:0}
 /* phone refinements */
 .jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 @media (max-width:640px){
+  .party-card{padding:26px 24px}
   .jump{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .jump .btn{padding:14px 8px;font-size:15px;text-align:center}
   .hero-card .btn-row .btn,.cta-inner .btn{width:100%;text-align:center}
