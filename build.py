@@ -57,12 +57,12 @@ NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.h
 FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:optional;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:optional;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
 """
-def head(title, desc, canonical, hero_name=None):
+def head(title, desc, canonical, hero_name=None, hero_sizes="(max-width: 900px) 100vw, 54vw"):
     css = open(os.path.join(PUB, "styles.css")).read()
     pre = ""
     if hero_name:
-        srcset = ", ".join(f"assets/img/{hero_name}-{x}.webp {x}w" for x in WIDE)
-        pre = f'<link rel="preload" as="image" imagesrcset="{srcset}" imagesizes="(max-width: 900px) 100vw, 54vw" fetchpriority="high">\n'
+        srcset = ", ".join(f"assets/img/{hero_name}-{x}.webp {x}w" for x in (WIDE + [1920] if hero_name == "craft-friends" else WIDE))
+        pre = f'<link rel="preload" as="image" imagesrcset="{srcset}" imagesizes="{hero_sizes}" fetchpriority="high">\n'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -79,7 +79,10 @@ def head(title, desc, canonical, hero_name=None):
 <body>
 """
 
+HEIGHTS = {"craft-friends": 900, "dice": 1201}
 def img(name, alt, widths=WIDE, sizes="100vw", cls="", w=1600, h=1067, lazy=True, style=""):
+    h = HEIGHTS.get(name, h) if w == 1600 else h
+    if name == "craft-friends": widths = list(widths) + [1920]
     srcset = ", ".join(f"assets/img/{name}-{x}.webp {x}w" for x in widths)
     prio = 'loading="lazy" decoding="async"' if lazy else 'fetchpriority="high" decoding="async"'
     st = f' style="{style}"' if style else ""
@@ -112,9 +115,10 @@ def footer():
 </html>
 """
 
-def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1"):
-    img_tag = img(img_name, alt, cls="hero-img", sizes="(max-width: 900px) 100vw, 54vw", lazy=False, style=f"object-position: {pos}")
-    return f"""<section class="hero">
+def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1", variant=""):
+    sizes = "100vw" if variant else "(max-width: 900px) 100vw, 54vw"
+    img_tag = img(img_name, alt, cls="hero-img", sizes=sizes, lazy=False, style=f"object-position: {pos}")
+    return f"""<section class="hero {variant}">
 {img_tag}
 <div class="wrap"><div class="card hero-card shadow-{shadow}">
 <span class="eyebrow">{eyebrow}</span>
@@ -274,18 +278,18 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 write("faq.html", faq_html)
 
 # ---------------- Home ----------------
-home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="hero-sewing") + nav("index.html") \
- + hero("hero-sewing", "A woman smiling at her sewing machine in a bright studio, spools of colored thread on the table", "Weekend retreats in Arkansas",
+home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="craft-friends", hero_sizes="100vw") + nav("index.html") \
+ + hero("craft-friends", "Three friends laughing at a craft table covered in watercolor supplies, one holding up her painting", "Weekend retreats in Arkansas",
         'The hobby gets a <span class="text-rust">whole</span> weekend.',
         "Weekend retreats in Arkansas for people who have something they love and no time to do it. A venue picked for the weekend, snacks stocked, setup done, and a room full of people who came for the same reason. Nothing on the schedule but the thing itself.",
-        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-outline"), "marigold", "70% 40%") \
+        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-outline"), "marigold", "center 38%", variant="hero-wide") \
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">
 <div class="party-media" aria-hidden="true">
-<img class="party-poster" src="assets/img/craft-poster-1280.webp" srcset="assets/img/craft-poster-800.webp 800w, assets/img/craft-poster-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
-<video class="party-video" muted playsinline preload="none" data-src="assets/craft-720.mp4" data-src-small="assets/craft-540.mp4"></video>
+<img class="party-poster" src="assets/img/group-poster-1280.webp" srcset="assets/img/group-poster-800.webp 800w, assets/img/group-poster-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="" loading="lazy" decoding="async">
 <video class="party-video" muted playsinline preload="none" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4"></video>
+<video class="party-video" muted playsinline preload="none" data-src="assets/craft-720.mp4" data-src-small="assets/craft-540.mp4"></video>
 </div>
 <div class="wrap"><div class="card party-card shadow-coral">
 <span class="eyebrow">The good part</span>
