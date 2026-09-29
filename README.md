@@ -4,7 +4,7 @@ Static marketing site for Nikki's weekend retreat business in Arkansas: hobby re
 
 ## Layout
 
-- `public/` is the published site. Six pages, one stylesheet, one small script, and `assets/` for photos and the hero video.
+- `public/` is the published site. Six pages, one small script, and `assets/` for fonts, responsive WebP images (`assets/img/`), and the party video. `styles.css` is inlined into every page at build time, so edit it and rebuild.
 - `build.py` generates the six HTML files in `public/` from the copy inside it. Edit the copy there, run `python3 build.py`, commit the output. Hand-editing the HTML works too, but the next build overwrites it.
 - `copy/copy.md` is the source copy and FAQ, mirrored from the design canvas.
 - `wrangler.jsonc` serves `public/` as static assets on a Cloudflare Worker. No worker code.
@@ -20,8 +20,8 @@ Static marketing site for Nikki's weekend retreat business in Arkansas: hobby re
 
 - Replace `Freckle Flower Event Planning`, `[Email]`, and `[Phone]`.
 - Set the Formspree endpoint in `build.py` (search `REPLACE_ME`) and rebuild.
-- Remove the `noindex` meta tag in `build.py` once the site is on its real domain.
-- Stock photos are from Pexels (free, no attribution required). Swap for real retreat photos when they exist.
+- Stock photos are from Pexels (free, no attribution required). Swap for real retreat photos when they exist. New photos go through sharp to produce the 480/800/1200/1600 WebP set in `assets/img/`.
+- Lighthouse scored 100 on every category, mobile and desktop, on all six pages (2026-09-28). Keep it there: no third-party scripts, no render-blocking CSS, every image with width, height, and srcset.
 
 ## Deploy
 
