@@ -7,7 +7,7 @@
 <meta name="description" content="Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.">
 <meta name="theme-color" content="#FFF4E3">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" imagesrcset="assets/img/craft-friends-480.webp 480w, assets/img/craft-friends-800.webp 800w, assets/img/craft-friends-1200.webp 1200w, assets/img/craft-friends-1600.webp 1600w, assets/img/craft-friends-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="assets/img/craft-friends-480.webp 480w, assets/img/craft-friends-800.webp 800w, assets/img/craft-friends-1200.webp 1200w, assets/img/craft-friends-1600.webp 1600w, assets/img/craft-friends-1920.webp 1920w" imagesizes="(max-width: 900px) 100vw, 60vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
@@ -68,11 +68,10 @@ p:last-child{margin-bottom:0}
 .hero-img{order:2;width:100%;height:100%;min-height:620px;object-fit:cover}
 .hero > .wrap{order:1;width:auto;margin:0;display:flex;align-items:center;padding:56px 56px 56px max(16px,calc((100vw - 1200px)/2))}
 .hero-card{position:relative;width:100%}
-.hero-wide{display:block;min-height:0;padding:0 0 56px}
-.hero-wide .hero-img{width:100%;height:clamp(340px,44vw,620px);min-height:0}
-.hero-wide > .wrap{display:block;width:min(1200px,100% - 32px);margin-inline:auto;padding:0}
-.hero-wide .hero-card{margin-top:-84px;max-width:880px}
-.hero-wide .hero-title{font-size:clamp(36px,4.4vw,62px)}
+.hero-wide{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);min-height:0}
+.hero-wide .hero-img{min-height:0;height:100%}
+.hero-wide > .wrap{padding-top:48px;padding-bottom:48px;padding-right:48px}
+.hero-wide .hero-title{font-size:clamp(36px,3.6vw,56px)}
 .hero-title{font-size:clamp(40px,4.6vw,68px);line-height:.98;margin:0 0 16px}
 .page-title{font-size:clamp(36px,5.5vw,64px);line-height:1;margin-bottom:16px}
 @media (max-width:900px){
@@ -83,7 +82,7 @@ p:last-child{margin-bottom:0}
   .eyebrow{font-size:12px;letter-spacing:.06em;border-radius:14px;padding:7px 12px}
 }
 @media (min-width:600px) and (max-width:900px){.hero-img{aspect-ratio:16/9}}
-@media (max-width:900px){.hero-wide{padding-bottom:32px}.hero-wide .hero-img{height:auto;aspect-ratio:16/9}.hero-wide .hero-card{margin-top:0;max-width:none}}
+@media (max-width:900px){.hero-wide .hero-img{height:auto;aspect-ratio:16/9}}
 @media (max-width:599px){.hero-wide .hero-img{aspect-ratio:3/2}}
 
 /* cards */
@@ -201,7 +200,7 @@ p:last-child{margin-bottom:0}
 </header>
 <main>
 <section class="hero hero-wide">
-<img class="hero-img" src="assets/img/craft-friends-1920.webp" srcset="assets/img/craft-friends-480.webp 480w, assets/img/craft-friends-800.webp 800w, assets/img/craft-friends-1200.webp 1200w, assets/img/craft-friends-1600.webp 1600w, assets/img/craft-friends-1920.webp 1920w" sizes="100vw" width="1600" height="900" alt="Three friends laughing at a craft table covered in watercolor supplies, one holding up her painting" fetchpriority="high" decoding="async" style="object-position: center 38%">
+<img class="hero-img" src="assets/img/craft-friends-1920.webp" srcset="assets/img/craft-friends-480.webp 480w, assets/img/craft-friends-800.webp 800w, assets/img/craft-friends-1200.webp 1200w, assets/img/craft-friends-1600.webp 1600w, assets/img/craft-friends-1920.webp 1920w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="900" alt="Three friends laughing at a craft table covered in watercolor supplies, one holding up her painting" fetchpriority="high" decoding="async" style="object-position: 58% 40%">
 <div class="wrap"><div class="card hero-card shadow-ink">
 <h1 class="display hero-title">The hobby gets a <span class="text-rust">whole</span> weekend.</h1>
 <p class="lead">Weekend retreats in Arkansas for people who have something they love and no time to do it.</p>

@@ -116,7 +116,7 @@ def footer():
 """
 
 def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="center 40%", tag="h1", variant=""):
-    sizes = "100vw" if variant else "(max-width: 900px) 100vw, 54vw"
+    sizes = "(max-width: 900px) 100vw, 60vw"
     img_tag = img(img_name, alt, cls="hero-img", sizes=sizes, lazy=False, style=f"object-position: {pos}")
     return f"""<section class="hero {variant}">
 {img_tag}
@@ -277,11 +277,11 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 write("faq.html", faq_html)
 
 # ---------------- Home ----------------
-home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="craft-friends", hero_sizes="100vw") + nav("index.html") \
+home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="craft-friends", hero_sizes="(max-width: 900px) 100vw, 60vw") + nav("index.html") \
  + hero("craft-friends", "Three friends laughing at a craft table covered in watercolor supplies, one holding up her painting", "Weekend retreats in Arkansas",
         'The hobby gets a <span class="text-rust">whole</span> weekend.',
         "Weekend retreats in Arkansas for people who have something they love and no time to do it.",
-        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-secondary"), "marigold", "center 38%", variant="hero-wide") \
+        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-secondary"), "marigold", "58% 40%", variant="hero-wide") \
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">
