@@ -7,7 +7,7 @@
 <meta name="description" content="Weekend tabletop gaming getaways in Arkansas for Warhammer, Magic, D&D, and board game groups. The venue, the tables, and the snacks are handled. Books at five.">
 <meta name="theme-color" content="#FFF4E3">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" imagesrcset="assets/img/boardgame-480.webp 480w, assets/img/boardgame-800.webp 800w, assets/img/boardgame-1200.webp 1200w, assets/img/boardgame-1600.webp 1600w" imagesizes="(max-width: 900px) 100vw, 54vw" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="assets/img/boardgame-480.webp 480w, assets/img/boardgame-800.webp 800w, assets/img/boardgame-1200.webp 1200w, assets/img/boardgame-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
@@ -22,7 +22,6 @@ a{color:var(--rust-text)}
 .display{font-family:Fraunces,'Times New Roman',Times,serif;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;font-weight:800;line-height:1.05}
 h1,h2,h3{margin:0}
 h2.display{font-size:clamp(30px,4.4vw,52px);margin-bottom:24px;text-wrap:balance}
-.hero-title,.page-title{text-wrap:balance}
 h3.display{font-size:24px;margin-bottom:8px}
 p{margin:0 0 14px}
 p:last-child{margin-bottom:0}
@@ -63,37 +62,15 @@ p:last-child{margin-bottom:0}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);align-items:stretch;min-height:620px;background:var(--cream)}
-.hero .shadow-ink{box-shadow:10px 10px 0 var(--ink)}
-.hero-img{order:2;width:100%;height:100%;min-height:620px;object-fit:cover}
-.hero > .wrap{order:1;width:auto;margin:0;display:flex;align-items:center;padding:56px 56px 56px max(16px,calc((100vw - 1200px)/2))}
-.hero-card{position:relative;width:100%}
-.hero-wide{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);min-height:0}
-.hero-wide .hero-img{min-height:0;height:100%}
-.hero-wide > .wrap{padding-top:48px;padding-bottom:48px;padding-right:48px}
-.hero-wide .hero-title{font-size:clamp(36px,3.6vw,56px)}
-.hero-title{font-size:clamp(40px,4.6vw,68px);line-height:.98;margin:0 0 16px}
 .page-title{font-size:clamp(36px,5.5vw,64px);line-height:1;margin-bottom:16px}
 @media (max-width:900px){
-  .hero{display:flex;flex-direction:column;min-height:0;padding:0 0 32px}
-  .hero-img{order:2;width:100%;height:auto;min-height:0;aspect-ratio:4/3}
-  .hero > .wrap{order:1;display:block;width:min(1200px,100% - 32px);margin-inline:auto;padding:28px 0 24px}
-  .hero-card{margin-top:0}
   .eyebrow{font-size:12px;letter-spacing:.06em;border-radius:14px;padding:7px 12px}
 }
-@media (min-width:600px) and (max-width:900px){.hero-img{aspect-ratio:16/9}}
-@media (max-width:900px){.hero-wide .hero-img{height:auto;aspect-ratio:16/9}}
-@media (max-width:599px){.hero-wide .hero-img{aspect-ratio:3/2}}
 
 /* cards */
 .card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
-.hero-card{background:#fff;padding:48px 48px 44px}
-.hero-card .hero-title{margin-bottom:22px}
-.hero-card .lead{margin-bottom:6px;max-width:34em}
-.hero-card .btn-row{margin-top:22px;gap:14px;align-items:center}
-.hero-card .btn{padding:16px 26px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
 .shadow-mint{box-shadow:12px 12px 0 var(--green)}
 .shadow-pink{box-shadow:12px 12px 0 var(--pink)}
@@ -102,7 +79,6 @@ p:last-child{margin-bottom:0}
 .shadow-ink{box-shadow:8px 8px 0 var(--ink)}
 .card-link{text-decoration:none;background:var(--cream);display:flex;flex-direction:column;gap:6px}
 .card-link .more{font-weight:700;margin-top:auto}
-@media (max-width:640px){.card{padding:24px;border-radius:22px}.hero-card,.party-card{padding:26px 24px}}
 
 /* sections */
 .band{padding:72px 0}
@@ -182,11 +158,24 @@ p:last-child{margin-bottom:0}
 }
 
 /* phone hero: one full-width button, secondary as a text link (kept last so it wins) */
+
+
+/* hero: full-bleed photo, darkened, centered copy, stacked buttons */
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;text-align:center;min-height:min(86vh,760px);padding:64px 0;background:var(--ink);color:#fff;overflow:hidden}
+.hero-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(28,14,40,.45) 0%,rgba(28,14,40,.62) 55%,rgba(28,14,40,.8) 100%)}
+.hero > .wrap{width:min(860px,100% - 32px)}
+.hero-card{background:none;padding:0;box-shadow:none;border-radius:0;display:flex;flex-direction:column;align-items:center}
+.hero-title{font-size:clamp(38px,5vw,72px);line-height:1;color:#fff;margin:0 0 20px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero-title .text-rust{color:var(--marigold)}
+.hero .lead{color:#FFF4E3;font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:0 0 32px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .btn-row{margin:0;justify-content:center;gap:14px}
+.hero .btn{min-width:230px;text-align:center;padding:18px 30px}
+.hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.75)}
 @media (max-width:900px){
-  .hero-card{padding:32px 28px 28px}
-  .hero-card .btn-row{flex-direction:column;align-items:stretch;gap:10px}
-  .hero-card .btn-accent{text-align:center;padding:18px 26px}
-  .hero-card .btn-secondary{border:0;padding:10px 0;text-align:center;text-decoration:underline;text-underline-offset:4px}
+  .hero{min-height:min(78vh,640px);padding:48px 0}
+  .hero .btn-row{flex-direction:column;align-items:stretch;width:100%;max-width:360px;gap:12px}
+  .hero .btn-secondary{border:0;text-decoration:underline;text-underline-offset:4px;padding:10px 0}
 }
 </style>
 </head>
@@ -199,8 +188,8 @@ p:last-child{margin-bottom:0}
 </div>
 </header>
 <main>
-<section class="hero ">
-<img class="hero-img" src="assets/img/boardgame-1600.webp" srcset="assets/img/boardgame-480.webp 480w, assets/img/boardgame-800.webp 800w, assets/img/boardgame-1200.webp 1200w, assets/img/boardgame-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="Four friends leaning over a board game at a wooden table" fetchpriority="high" decoding="async" style="object-position: center 45%">
+<section class="hero">
+<img class="hero-img" src="assets/img/boardgame-1600.webp" srcset="assets/img/boardgame-480.webp 480w, assets/img/boardgame-800.webp 800w, assets/img/boardgame-1200.webp 1200w, assets/img/boardgame-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Four friends leaning over a board game at a wooden table" fetchpriority="high" decoding="async" style="object-position: center 45%">
 <div class="wrap"><div class="card hero-card shadow-ink">
 <h1 class="display hero-title">The campaign finally gets past session three.</h1>
 <p class="lead">Weekend getaways in Arkansas for tabletop gamers, with the venue, the tables, and the snacks handled and nothing to bring but the army.</p>
