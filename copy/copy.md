@@ -16,11 +16,13 @@ Nav: Hobby Retreats · Gaming Getaways · Corporate Retreats · Private Groups �
 
 Headline: The hobby gets a whole weekend.
 
-Subhead: Weekend retreats in Arkansas for people who have something they love and no time to do it. A venue picked for the weekend, snacks stocked, setup done, and a room full of people who came for the same reason. Nothing on the schedule but the thing itself.
+Subhead: Weekend retreats in Arkansas for people who have something they love and no time to do it.
 
-Direct CTA: Book a Weekend
+Direct CTA: Book a Weekend (the only marigold button)
 
-Transitional CTA: See Upcoming Retreats
+Secondary: Read the FAQ (thin outline on desktop, text link on phones)
+
+No eyebrow pill above the headline on any hero, per the outsetsites hero brief of 2026-09-30.
 
 Hero image note: Wide shot of the real room. Quilters at machines or a long table mid-game. People mid-laugh, nobody looking at the camera.
 

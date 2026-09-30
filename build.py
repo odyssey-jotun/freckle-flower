@@ -120,8 +120,7 @@ def hero(img_name, alt, eyebrow, h1, sub, cta1, cta2, shadow="marigold", pos="ce
     img_tag = img(img_name, alt, cls="hero-img", sizes=sizes, lazy=False, style=f"object-position: {pos}")
     return f"""<section class="hero {variant}">
 {img_tag}
-<div class="wrap"><div class="card hero-card shadow-{shadow}">
-<span class="eyebrow">{eyebrow}</span>
+<div class="wrap"><div class="card hero-card shadow-ink">
 <{tag} class="display hero-title">{h1}</{tag}>
 <p class="lead">{sub}</p>
 <div class="btn-row">{cta1}{cta2}</div>
@@ -173,7 +172,7 @@ def write(name, html):
     print("wrote", name)
 
 def service(fname, title, desc, key, img, alt, eyebrow, h1, sub, cta1, cta2, st_h2, st_ps, inc, who_h2, who_text, faq_h2, cta_h2, cta_label, shadow, pos="center 40%"):
-    html = head(title, desc, fname, hero_name=img) + nav(fname) + hero(img, alt, eyebrow, h1, sub, btn("#book", cta1), btn("faq.html", cta2, "btn-outline"), shadow, pos) \
+    html = head(title, desc, fname, hero_name=img) + nav(fname) + hero(img, alt, eyebrow, h1, sub, btn("#book", cta1), btn("faq.html", cta2, "btn-secondary"), shadow, pos) \
         + stakes(st_h2, st_ps) + included("What's included", inc) + who(who_h2, who_text) + faq_section(faq_h2, FAQ[key]) + cta_band(cta_h2, cta_label) + footer()
     write(fname, html)
 
@@ -181,7 +180,7 @@ service("hobby-retreats.html", "Quilting, Sewing, and Craft Retreats in Arkansas
   "Weekend quilting, sewing, scrapbooking, and craft retreats in Arkansas. A venue picked for the weekend, tables set, snacks stocked. Books at five people.",
   "hobby", "hero-sewing", "A woman smiling at her sewing machine in a bright studio",
   "Quilting, sewing, and craft retreats in Arkansas", "Forty-eight hours with the project.",
-  "Weekend retreats in Arkansas for quilters, sewists, scrapbookers, knitters, and anyone with a craft that keeps losing to the calendar. A venue picked for the weekend, tables set, snacks stocked, and a room full of people who get it.",
+  "Weekend retreats in Arkansas for quilters, sewists, scrapbookers, knitters, and anyone with a craft that keeps losing to the calendar.",
   "Book a Craft Weekend", "Read the FAQ",
   "The stash grows. The finished pile doesn't.",
   ["Every quilter knows the project that has been \"almost done\" for two years, and every one of them knows exactly why. An hour on a Tuesday night is enough to get the machine out and put it away again.",
@@ -200,7 +199,7 @@ service("gaming-getaways.html", "Tabletop Gaming Retreats in Arkansas | Freckle 
   "Weekend tabletop gaming getaways in Arkansas for Warhammer, Magic, D&D, and board game groups. The venue, the tables, and the snacks are handled. Books at five.",
   "gaming", "boardgame", "Four friends leaning over a board game at a wooden table",
   "Tabletop gaming retreats in Arkansas", "The campaign finally gets past session three.",
-  "Weekend getaways in Arkansas for tabletop gamers. Warhammer, Magic, D&amp;D, board games, whatever the group plays. The venue, the tables, and the snacks are handled. The only thing anyone has to bring is the army.",
+  "Weekend getaways in Arkansas for tabletop gamers, with the venue, the tables, and the snacks handled and nothing to bring but the army.",
   "Book a Gaming Weekend", "Read the FAQ",
   "Six adults. Six calendars. One campaign.",
   ["Every gaming group has the same problem. A campaign that meets once every two months when it meets at all. The army is half painted. The deck hasn't been sleeved. The board game that takes four hours never comes out because nobody has four hours.",
@@ -219,7 +218,7 @@ service("corporate-retreats.html", "Corporate Retreats in Arkansas | Freckle Flo
   "Corporate retreats in Arkansas planned and run by a twenty-year theatre production veteran. A venue that fits the team, a room set to the agenda, and a schedule that holds.",
   "corporate", "corporate", "A team of four working through sticky notes on a glass wall",
   "Corporate retreats in Arkansas", "An offsite run like opening night.",
-  "Corporate retreats in Arkansas, planned and run by a twenty-year theatre production veteran. A venue that fits the team, a room set to the agenda, and a schedule that holds.",
+  "Corporate retreats in Arkansas, planned and run by a twenty-year theatre production veteran, with a schedule that holds.",
   "Request a Proposal", "Read the FAQ",
   "Most offsites get planned by whoever drew the short straw.",
   ["The venue gets booked late, the agenda slips by lunch, and the team spends more time finding the room than using it. Everyone goes home tired, and the one thing on the agenda that mattered never got its hour.",
@@ -238,7 +237,7 @@ service("private-groups.html", "Private Group Retreats in Arkansas | Freckle Flo
   "Private weekend bookings in Arkansas for quilt guilds, gaming groups, clubs, and friend groups. One organizer, one point of contact, the whole weekend to yourselves.",
   "private", "party-color", "Five friends laughing as a confetti popper goes off",
   "Private group retreats in Arkansas", "Bring the group. Skip the group text.",
-  "Private weekend bookings in Arkansas for quilt guilds, gaming groups, clubs, and friend groups who want a retreat without one person doing all the planning.",
+  "Private weekend bookings in Arkansas for guilds, gaming groups, clubs, and friend groups who want a retreat without one person doing all the planning.",
   "Book a Private Weekend", "Read the FAQ",
   "Every group has one person who plans everything.",
   ["She finds the rental, collects the money, makes the grocery list, and spends the weekend she planned making sure everyone else is having a good one. Eventually she stops volunteering, and the group stops going anywhere.",
@@ -281,8 +280,8 @@ write("faq.html", faq_html)
 home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Weekend retreats in Arkansas for people who have something they love and no time to do it. Hobby, gaming, corporate, and private group weekends. Books at five.", "index.html", hero_name="craft-friends", hero_sizes="100vw") + nav("index.html") \
  + hero("craft-friends", "Three friends laughing at a craft table covered in watercolor supplies, one holding up her painting", "Weekend retreats in Arkansas",
         'The hobby gets a <span class="text-rust">whole</span> weekend.',
-        "Weekend retreats in Arkansas for people who have something they love and no time to do it. A venue picked for the weekend, snacks stocked, setup done, and a room full of people who came for the same reason. Nothing on the schedule but the thing itself.",
-        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-outline"), "marigold", "center 38%", variant="hero-wide") \
+        "Weekend retreats in Arkansas for people who have something they love and no time to do it.",
+        btn("#book","Book a Weekend"), btn("faq.html","Read the FAQ","btn-secondary"), "marigold", "center 38%", variant="hero-wide") \
  + stakes("Most hobbies die of scheduling.", ["The machine sits in the closet. The army stays half painted. The fabric stash grows and the finished quilts don't. Nobody decides to quit. Work fills the weeknights, family fills the weekends, and another season goes by with the good stuff still in the box.",
    "<strong>Two out of three adults say they wish they had more time for a hobby.</strong> Most of them are waiting for the time to show up on its own. It doesn't."]) \
  + f"""<section class="party">

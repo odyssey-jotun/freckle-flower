@@ -55,7 +55,7 @@ p:last-child{margin-bottom:0}
 /* buttons */
 .btn{display:inline-block;padding:16px 28px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;color:var(--ink);border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
 .btn-accent{background:var(--marigold)}
-.btn-outline{background:transparent;border-color:var(--ink)}
+.btn-secondary{background:transparent;border:1.5px solid rgba(59,42,74,.55);font-weight:500}
 .btn-ink{background:var(--ink);color:var(--cream)}
 .c-marigold{background:var(--marigold)}.c-pink{background:var(--pink)}.c-sky{background:var(--sky)}.c-mint{background:var(--green)}
 .menu .btn{padding:12px 22px;font-size:15px}
@@ -63,7 +63,8 @@ p:last-child{margin-bottom:0}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:stretch;min-height:620px;background:var(--cream)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);align-items:stretch;min-height:620px;background:var(--cream)}
+.hero .shadow-ink{box-shadow:10px 10px 0 var(--ink)}
 .hero-img{order:2;width:100%;height:100%;min-height:620px;object-fit:cover}
 .hero > .wrap{order:1;width:auto;margin:0;display:flex;align-items:center;padding:56px 56px 56px max(16px,calc((100vw - 1200px)/2))}
 .hero-card{position:relative;width:100%}
@@ -75,21 +76,25 @@ p:last-child{margin-bottom:0}
 .hero-title{font-size:clamp(40px,4.6vw,68px);line-height:.98;margin:0 0 16px}
 .page-title{font-size:clamp(36px,5.5vw,64px);line-height:1;margin-bottom:16px}
 @media (max-width:900px){
-  .hero{display:block;min-height:0;padding:0 0 44px}
-  .hero-img{width:100%;height:auto;min-height:0;aspect-ratio:4/3}
-  .hero > .wrap{display:block;width:min(1200px,100% - 32px);margin-inline:auto;padding:0}
-  .hero-card{margin-top:-44px}
+  .hero{display:flex;flex-direction:column;min-height:0;padding:0 0 32px}
+  .hero-img{order:2;width:100%;height:auto;min-height:0;aspect-ratio:4/3}
+  .hero > .wrap{order:1;display:block;width:min(1200px,100% - 32px);margin-inline:auto;padding:28px 0 24px}
+  .hero-card{margin-top:0}
   .eyebrow{font-size:12px;letter-spacing:.06em;border-radius:14px;padding:7px 12px}
 }
 @media (min-width:600px) and (max-width:900px){.hero-img{aspect-ratio:16/9}}
-@media (max-width:900px){.hero-wide{padding-bottom:44px}.hero-wide .hero-img{height:auto;aspect-ratio:16/9}.hero-wide .hero-card{margin-top:-44px;max-width:none}}
+@media (max-width:900px){.hero-wide{padding-bottom:32px}.hero-wide .hero-img{height:auto;aspect-ratio:16/9}.hero-wide .hero-card{margin-top:0;max-width:none}}
 @media (max-width:599px){.hero-wide .hero-img{aspect-ratio:3/2}}
 
 /* cards */
 .card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
-.hero-card{background:#fff;padding:40px 44px}
+.hero-card{background:#fff;padding:48px 48px 44px}
+.hero-card .hero-title{margin-bottom:22px}
+.hero-card .lead{margin-bottom:6px;max-width:34em}
+.hero-card .btn-row{margin-top:22px;gap:14px;align-items:center}
+.hero-card .btn{padding:16px 26px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
 .shadow-mint{box-shadow:12px 12px 0 var(--green)}
 .shadow-pink{box-shadow:12px 12px 0 var(--pink)}
@@ -122,15 +127,13 @@ p:last-child{margin-bottom:0}
 .party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
 @media (max-width:900px){.party{padding-bottom:44px}.party-media{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
 @media (min-width:600px) and (max-width:900px){.party-media{aspect-ratio:16/9}}
-@media (prefers-reduced-motion:reduce){.badge{animation:none}}
 
 /* guide: Nikki at the center of a flower */
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
 .guide-photo{position:relative;width:100%;max-width:400px;aspect-ratio:1/1;margin:0 auto}
 .guide-photo .petals{position:absolute;inset:0;width:100%;height:100%}
 .guide-photo img{position:absolute;left:16%;top:16%;width:68%;height:68%;max-width:none;object-fit:cover;object-position:46% 28%;border-radius:50%;border:6px solid var(--cream);box-shadow:0 6px 0 rgba(59,42,74,.12)}
-.badge{position:absolute;left:50%;bottom:2%;translate:-50% 0;white-space:nowrap;background:var(--ink);color:var(--cream);border-radius:999px;padding:10px 18px;font-weight:700;font-size:15px;animation:wobble 2.6s ease-in-out infinite}
-@keyframes wobble{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.badge{position:absolute;left:50%;bottom:2%;translate:-50% 0;white-space:nowrap;background:var(--ink);color:var(--cream);border-radius:999px;padding:10px 18px;font-weight:700;font-size:15px}
 .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .pills span{background:var(--cream);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
 @media (max-width:900px){.guide{grid-template-columns:1fr;gap:28px}.guide-photo{max-width:340px}}
@@ -175,8 +178,16 @@ p:last-child{margin-bottom:0}
   .party-card{padding:26px 24px}
   .jump{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .jump .btn{padding:14px 8px;font-size:15px;text-align:center}
-  .hero-card .btn-row .btn,.cta-inner .btn{width:100%;text-align:center}
+  .cta-inner .btn{width:100%;text-align:center}
   .cta-inner{gap:20px}
+}
+
+/* phone hero: one full-width button, secondary as a text link (kept last so it wins) */
+@media (max-width:900px){
+  .hero-card{padding:32px 28px 28px}
+  .hero-card .btn-row{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-card .btn-accent{text-align:center;padding:18px 26px}
+  .hero-card .btn-secondary{border:0;padding:10px 0;text-align:center;text-decoration:underline;text-underline-offset:4px}
 }
 </style>
 </head>
@@ -191,11 +202,10 @@ p:last-child{margin-bottom:0}
 <main>
 <section class="hero ">
 <img class="hero-img" src="assets/img/hero-sewing-1600.webp" srcset="assets/img/hero-sewing-480.webp 480w, assets/img/hero-sewing-800.webp 800w, assets/img/hero-sewing-1200.webp 1200w, assets/img/hero-sewing-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 54vw" width="1600" height="1067" alt="A woman smiling at her sewing machine in a bright studio" fetchpriority="high" decoding="async" style="object-position: 70% 40%">
-<div class="wrap"><div class="card hero-card shadow-marigold">
-<span class="eyebrow">Quilting, sewing, and craft retreats in Arkansas</span>
+<div class="wrap"><div class="card hero-card shadow-ink">
 <h1 class="display hero-title">Forty-eight hours with the project.</h1>
-<p class="lead">Weekend retreats in Arkansas for quilters, sewists, scrapbookers, knitters, and anyone with a craft that keeps losing to the calendar. A venue picked for the weekend, tables set, snacks stocked, and a room full of people who get it.</p>
-<div class="btn-row"><a class="btn btn-accent" href="#book">Book a Craft Weekend</a><a class="btn btn-outline" href="faq.html">Read the FAQ</a></div>
+<p class="lead">Weekend retreats in Arkansas for quilters, sewists, scrapbookers, knitters, and anyone with a craft that keeps losing to the calendar.</p>
+<div class="btn-row"><a class="btn btn-accent" href="#book">Book a Craft Weekend</a><a class="btn btn-secondary" href="faq.html">Read the FAQ</a></div>
 </div></div>
 </section>
 <section class="band band-peach"><div class="wrap two-col">
