@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quilting, Sewing, and Craft Retreats in Arkansas | Freckle Flower Event Planning</title>
 <meta name="description" content="Weekend quilting, sewing, scrapbooking, and craft retreats in Arkansas. A venue picked for the weekend, tables set, snacks stocked. Books at five people.">
-<meta name="theme-color" content="#FFF4E3">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#F8EBD7">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" as="image" imagesrcset="assets/img/hero-sewing-480.webp 480w, assets/img/hero-sewing-800.webp 800w, assets/img/hero-sewing-1200.webp 1200w, assets/img/hero-sewing-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
-:root{--rust-text:#9A3412;--cream:#FFF4E3;--peach:#FFE3D0;--mint:#E4F6EC;--ink:#3B2A4A;--muted:#5B4A6A;--rust:#C2410C;--marigold:#F6B93B;--coral:#FF6B6B;--green:#3ECF8E;--pink:#FF8FD8;--sky:#6FC3FF;--plum:#B8329A;--blue:#1D6FA8;--dkgreen:#1B8A5A}
+:root{--terracotta:#C15A3C;--terracotta-deep:#B5523C;--cream:#F8EBD7;--cream-light:#F8EFE3;--marigold:#E0A62E;--teal:#2F7F7A;--teal-deep:#0F6B6B;--coral:#F7766D;--charcoal:#2E2E2E;--muted:#4A4A4A;--ink:var(--charcoal);--rust:var(--terracotta-deep);--rust-text:#A0472F;--on-terracotta:#FFFFFF;--card:var(--cream-light)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,Arial,Helvetica,sans-serif;font-size:17px;line-height:1.55}
@@ -26,18 +28,21 @@ h3.display{font-size:24px;margin-bottom:8px}
 p{margin:0 0 14px}
 p:last-child{margin-bottom:0}
 .wrap{width:min(1200px,100% - 32px);margin-inline:auto}
-.text-rust{color:var(--rust)}.text-plum{color:var(--plum)}.text-blue{color:var(--blue)}.text-green{color:var(--dkgreen)}
+.text-rust{color:var(--terracotta-deep)}.text-teal{color:var(--teal-deep)}.text-charcoal{color:var(--charcoal)}
 .lead{font-size:19px;color:var(--muted)}
 .prose{color:var(--muted);font-size:18px}
 .prose .strong,.strong{color:var(--ink);font-weight:500}
 .prose h2{color:var(--ink)}
-.eyebrow{display:inline-block;background:var(--peach);color:var(--rust-text);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
-.band-peach .eyebrow{background:var(--cream)}
+.eyebrow{display:inline-block;background:var(--marigold);color:var(--charcoal);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+
 
 /* nav */
-.nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(59,42,74,.08)}
+.nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(46,46,46,.08)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:16px}
-.brand{font-size:26px;color:var(--ink);text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+.brand-flower{width:48px;height:48px}
+.brand-word{width:198px;height:34px}
+@media (max-width:380px){.brand-flower{width:40px;height:40px}.brand-word{width:163px;height:28px}}
 .menu ul{list-style:none;margin:0;padding:0;display:flex;gap:24px;align-items:center;font-weight:500}
 .menu a{color:var(--ink);text-decoration:none}
 .menu a.active{border-bottom:2px solid var(--rust-text);padding-bottom:2px}
@@ -45,7 +50,7 @@ p:last-child{margin-bottom:0}
 .nav-toggle span{display:block;height:3px;background:var(--ink);border-radius:2px}
 @media (max-width:1100px){
   .nav-toggle{display:flex}
-  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(59,42,74,.1);padding:12px 16px 20px}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(46,46,46,.1);padding:12px 16px 20px}
   .menu.open{display:block}
   .menu ul{flex-direction:column;align-items:flex-start;gap:14px}
   .menu ul li{width:100%}.menu a{display:block;padding:8px 0;font-size:18px}
@@ -54,9 +59,9 @@ p:last-child{margin-bottom:0}
 /* buttons */
 .btn{display:inline-block;padding:16px 28px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;color:var(--ink);border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
 .btn-accent{background:var(--marigold)}
-.btn-secondary{background:transparent;border:1.5px solid rgba(59,42,74,.55);font-weight:500}
+.btn-secondary{background:transparent;border:1.5px solid rgba(46,46,46,.55);font-weight:500}
 .btn-ink{background:var(--ink);color:var(--cream)}
-.c-marigold{background:var(--marigold)}.c-pink{background:var(--pink)}.c-sky{background:var(--sky)}.c-mint{background:var(--green)}
+.c-marigold{background:var(--marigold)}.c-coral{background:var(--coral)}.c-teal{background:var(--teal-deep);color:var(--cream)}.c-terracotta{background:var(--terracotta-deep);color:var(--on-terracotta)}
 .menu .btn{padding:12px 22px;font-size:15px}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
@@ -68,13 +73,12 @@ p:last-child{margin-bottom:0}
 }
 
 /* cards */
-.card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
+.card{background:var(--card);border-radius:28px;padding:32px;color:var(--ink)}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
-.shadow-mint{box-shadow:12px 12px 0 var(--green)}
-.shadow-pink{box-shadow:12px 12px 0 var(--pink)}
-.shadow-sky{box-shadow:12px 12px 0 var(--sky)}
+.shadow-terracotta{box-shadow:12px 12px 0 var(--terracotta)}
+.shadow-teal{box-shadow:12px 12px 0 var(--teal)}
 .shadow-coral{box-shadow:12px 12px 0 var(--coral)}
 .shadow-ink{box-shadow:8px 8px 0 var(--ink)}
 .card-link{text-decoration:none;background:var(--cream);display:flex;flex-direction:column;gap:6px}
@@ -82,7 +86,10 @@ p:last-child{margin-bottom:0}
 
 /* sections */
 .band{padding:72px 0}
-.band-peach{background:var(--peach)}.band-mint{background:var(--mint)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
+.band-teal{background:var(--teal-deep);color:var(--cream)}.band-terracotta{background:var(--terracotta-deep);color:var(--on-terracotta)}
+.band-teal .display,.band-teal .prose,.band-teal .prose .strong,.band-teal h2.text-rust{color:var(--cream)}
+.band-terracotta .display,.band-terracotta .prose,.band-terracotta .prose .strong,.band-terracotta .step p,.band-terracotta .step h3{color:var(--on-terracotta)}
+.band-teal .card .display,.band-terracotta .card .display{color:var(--charcoal)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
 .two-col{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
 .two-col h2{margin-bottom:0}
 .grid{display:grid;gap:24px}
@@ -95,11 +102,11 @@ p:last-child{margin-bottom:0}
 
 /* group video band: video on top, card overlapping its bottom edge */
 .party{position:relative;padding:0 0 56px;background:var(--cream)}
-.party-media{position:relative;width:100%;height:min(68vh,640px);min-height:320px;overflow:hidden;background:var(--peach)}
+.party-media{position:relative;width:100%;height:min(68vh,640px);min-height:320px;overflow:hidden;background:var(--cream)}
 .party-poster,.party-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}
 .party-video{opacity:0;transition:opacity .9s ease}
 .party-video.is-on{opacity:1}
-.party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
+.party-card{position:relative;margin-top:-72px;max-width:720px;background:var(--card);padding:40px 44px}
 @media (max-width:900px){.party{padding-bottom:44px}.party-media{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
 @media (min-width:600px) and (max-width:900px){.party-media{aspect-ratio:16/9}}
 
@@ -107,15 +114,16 @@ p:last-child{margin-bottom:0}
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
 .guide-photo{position:relative;width:100%;max-width:400px;aspect-ratio:1/1;margin:0 auto}
 .guide-photo .petals{position:absolute;inset:0;width:100%;height:100%}
-.guide-photo img{position:absolute;left:16%;top:16%;width:68%;height:68%;max-width:none;object-fit:cover;object-position:46% 28%;border-radius:50%;border:6px solid var(--cream);box-shadow:0 6px 0 rgba(59,42,74,.12)}
+.guide-photo img{position:absolute;left:16%;top:16%;width:68%;height:68%;max-width:none;object-fit:cover;object-position:46% 28%;border-radius:50%;border:6px solid var(--cream);box-shadow:0 6px 0 rgba(46,46,46,.12)}
 .badge{position:absolute;left:50%;bottom:2%;translate:-50% 0;white-space:nowrap;background:var(--ink);color:var(--cream);border-radius:999px;padding:10px 18px;font-weight:700;font-size:15px}
 .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.pills span{background:var(--cream);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
+.pills span{background:var(--terracotta-deep);color:var(--on-terracotta)!important;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
 @media (max-width:900px){.guide{grid-template-columns:1fr;gap:28px}.guide-photo{max-width:340px}}
 
 /* steps */
 .steps .step{border-top:4px solid var(--marigold);padding-top:20px}
-.step-mint{border-top-color:var(--green)!important}.step-pink{border-top-color:var(--pink)!important}
+.step-cream{border-top-color:var(--cream)!important}
+.band-terracotta .num.text-marigold{color:var(--marigold)}
 .step .num{font-size:64px;line-height:1;margin-bottom:8px}
 .step h3{font-size:24px;margin-bottom:8px}
 .step p{color:var(--muted)}
@@ -131,7 +139,7 @@ p:last-child{margin-bottom:0}
 
 /* faq */
 .faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.faq{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:0}
+.faq{background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:0}
 .faq summary{cursor:pointer;padding:20px 24px;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--rust-text);flex:0 0 auto}
@@ -141,11 +149,13 @@ p:last-child{margin-bottom:0}
 @media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* footer */
-.footer{background:var(--ink);color:#E8DDF0;padding:40px 0;font-size:15px}
+.footer{background:var(--ink);color:var(--cream);padding:40px 0;font-size:15px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer-id{display:flex;align-items:center;gap:14px}
+.footer-flower{width:56px;height:56px;flex:0 0 auto;padding:4px;background:var(--cream);border-radius:50%}
 .footer-brand{font-size:22px;color:var(--marigold);margin-bottom:6px}
 .footer-links{display:flex;gap:18px;flex-wrap:wrap}
-.footer-links a{color:#E8DDF0;text-decoration:none}
+.footer-links a{color:var(--cream);text-decoration:none}
 
 /* phone refinements */
 .jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
@@ -163,12 +173,12 @@ p:last-child{margin-bottom:0}
 /* hero: full-bleed photo, darkened, centered copy, stacked buttons */
 .hero{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;text-align:center;min-height:min(86vh,760px);padding:64px 0;background:var(--ink);color:#fff;overflow:hidden}
 .hero-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(28,14,40,.45) 0%,rgba(28,14,40,.62) 55%,rgba(28,14,40,.8) 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,30,30,.45) 0%,rgba(30,30,30,.62) 55%,rgba(30,30,30,.8) 100%)}
 .hero > .wrap{width:min(860px,100% - 32px)}
 .hero-card{background:none;padding:0;box-shadow:none;border-radius:0;display:flex;flex-direction:column;align-items:center}
 .hero-title{font-size:clamp(38px,5vw,72px);line-height:1;color:#fff;margin:0 0 20px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .hero-title .text-rust{color:var(--marigold)}
-.hero .lead{color:#FFF4E3;font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:0 0 32px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .lead{color:var(--cream);font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:0 0 32px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero .btn-row{margin:0;justify-content:center;gap:14px}
 .hero .btn{min-width:230px;text-align:center;padding:18px 30px}
 .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.75)}
@@ -182,7 +192,7 @@ p:last-child{margin-bottom:0}
 <body>
 <header class="nav">
 <div class="wrap nav-inner">
-<a class="brand display" href="index.html">Freckle Flower</a>
+<a class="brand" href="index.html" aria-label="Freckle Flower Event Planning, home"><img class="brand-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x, assets/img/brand/flower-144.webp 3x" width="48" height="48" alt=""><img class="brand-word" src="assets/img/brand/wordmark-68.webp" srcset="assets/img/brand/wordmark-34.webp 1x, assets/img/brand/wordmark-68.webp 2x, assets/img/brand/wordmark-102.webp 3x" width="198" height="34" alt="Freckle Flower"></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
 <nav id="menu" class="menu"><ul><li><a href="hobby-retreats.html" class=active>Hobby Retreats</a></li><li><a href="gaming-getaways.html">Gaming Getaways</a></li><li><a href="corporate-retreats.html">Corporate Retreats</a></li><li><a href="private-groups.html">Private Groups</a></li><li><a href="index.html#nikki">Nikki</a></li><li><a href="faq.html">FAQ</a></li><li><a class="btn btn-accent" href="index.html#book">Book a Weekend</a></li></ul></nav>
 </div>
@@ -196,13 +206,13 @@ p:last-child{margin-bottom:0}
 <div class="btn-row"><a class="btn btn-accent" href="#book">Book a Craft Weekend</a><a class="btn btn-secondary" href="faq.html">Read the FAQ</a></div>
 </div></div>
 </section>
-<section class="band band-peach"><div class="wrap two-col">
+<section class="band band-teal"><div class="wrap two-col">
 <h2 class="display text-rust">The stash grows. The finished pile doesn't.</h2><div class="prose"><p>Every quilter knows the project that has been "almost done" for two years, and every one of them knows exactly why. An hour on a Tuesday night is enough to get the machine out and put it away again.</p><p>A whole weekend is a different thing. The machine stays out. The cutting mat stays on the table. The project moves.</p></div>
 </div></section>
 <section class="band"><div class="wrap">
-<h2 class="display">What's included</h2><div class="grid grid-3"><div class="card shadow-marigold"><h3 class="display">A venue picked for the weekend</h3><p>Nikki finds the place in Arkansas that fits the group: good light, big tables, room to spread out.</p></div><div class="card shadow-mint"><h3 class="display">Setup done before anyone arrives</h3><p>Tables, lighting, ironing and cutting stations, laid out the way the proposal says.</p></div><div class="card shadow-pink"><h3 class="display">Snacks and drinks, stocked</h3><p>Nikki brings them, as listed in the proposal. The coffee does not run out.</p></div><div class="card shadow-sky"><h3 class="display">Catering, arranged per weekend</h3><p>Meals work like the venue. Catering is set up for that retreat and the proposal says what's on the table and when.</p></div><div class="card shadow-coral"><h3 class="display">Nikki on site</h3><p>One person running the weekend so nobody in the group has to.</p></div><div class="card shadow-marigold"><h3 class="display">The proposal</h3><p>One document with the venue, what's included, and the house rules. Read it once and relax.</p></div></div>
+<h2 class="display">What's included</h2><div class="grid grid-3"><div class="card shadow-marigold"><h3 class="display">A venue picked for the weekend</h3><p>Nikki finds the place in Arkansas that fits the group: good light, big tables, room to spread out.</p></div><div class="card shadow-teal"><h3 class="display">Setup done before anyone arrives</h3><p>Tables, lighting, ironing and cutting stations, laid out the way the proposal says.</p></div><div class="card shadow-coral"><h3 class="display">Snacks and drinks, stocked</h3><p>Nikki brings them, as listed in the proposal. The coffee does not run out.</p></div><div class="card shadow-terracotta"><h3 class="display">Catering, arranged per weekend</h3><p>Meals work like the venue. Catering is set up for that retreat and the proposal says what's on the table and when.</p></div><div class="card shadow-marigold"><h3 class="display">Nikki on site</h3><p>One person running the weekend so nobody in the group has to.</p></div><div class="card shadow-teal"><h3 class="display">The proposal</h3><p>One document with the venue, what's included, and the house rules. Read it once and relax.</p></div></div>
 </div></section>
-<section class="band band-mint"><div class="wrap two-col">
+<section class="band band-terracotta"><div class="wrap two-col">
 <h2 class="display">Who comes</h2><div class="prose"><p>Solo quilters who want a weekend alone with the machine. Guilds who want the retreat without one member doing all the work. Scrapbookers with three years of photos in a box. Knitters, crocheters, cross-stitchers, anyone with a hobby that fits on a table. Nobody has to be good at it. Nobody has to finish anything. The weekend counts either way.</p></div>
 </div></section>
 <section class="band"><div class="wrap">
@@ -214,7 +224,7 @@ p:last-child{margin-bottom:0}
 </main>
 <footer class="footer">
 <div class="wrap footer-inner">
-<div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div>
+<div class="footer-id"><img class="footer-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async"><div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div></div>
 <nav class="footer-links"><a href="hobby-retreats.html">Hobby Retreats</a><a href="gaming-getaways.html">Gaming Getaways</a><a href="corporate-retreats.html">Corporate Retreats</a><a href="private-groups.html">Private Groups</a><a href="index.html#nikki">Nikki</a><a href="faq.html">FAQ</a></nav>
 <div>© 2026 Freckle Flower Event Planning</div>
 </div>
