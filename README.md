@@ -1,6 +1,6 @@
 # Freckle Flower Event Planning
 
-Static marketing site for Nikki's weekend retreat business in Arkansas: hobby retreats, gaming getaways, corporate retreats, and private group bookings. The brand has no name yet, so every page carries `Freckle Flower Event Planning` placeholders.
+Static marketing site for Nikki's weekend retreat business in Arkansas: hobby retreats, gaming getaways, corporate retreats, and private group bookings.
 
 ## Layout
 
@@ -8,6 +8,12 @@ Static marketing site for Nikki's weekend retreat business in Arkansas: hobby re
 - `build.py` generates the six HTML files in `public/` from the copy inside it. Edit the copy there, run `python3 build.py`, commit the output. Hand-editing the HTML works too, but the next build overwrites it.
 - `copy/copy.md` is the source copy and FAQ, mirrored from the design canvas.
 - `wrangler.jsonc` serves `public/` as static assets on a Cloudflare Worker. No worker code.
+
+## Brand
+
+- `brand/` holds Nikki's source files: two logo concepts and two brand boards. Never served.
+- The site uses Concept 3 (Patchwork Flower). `assets/img/brand/` has the flower and the "Freckle Flower" wordmark cut out on transparency, without the "Creative Co." line; the copy still says Freckle Flower Event Planning. Favicons are the flower.
+- Palette comes from the logo and brand boards: terracotta, marigold, blush, coral, teal, forest, sage, cream, and a green-charcoal ink. All colors are variables at the top of `styles.css`.
 
 ## Rules baked into the copy
 

@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ | Freckle Flower Event Planning</title>
 <meta name="description" content="Everything people ask before booking a hobby, gaming, corporate, or private group retreat in Arkansas.">
-<meta name="theme-color" content="#FFF4E3">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FBF5EB">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
-:root{--rust-text:#9A3412;--cream:#FFF4E3;--peach:#FFE3D0;--mint:#E4F6EC;--ink:#3B2A4A;--muted:#5B4A6A;--rust:#C2410C;--marigold:#F6B93B;--coral:#FF6B6B;--green:#3ECF8E;--pink:#FF8FD8;--sky:#6FC3FF;--plum:#B8329A;--blue:#1D6FA8;--dkgreen:#1B8A5A}
+:root{--rust-text:#9A3B1F;--cream:#FBF5EB;--peach:#F6E1D2;--sage-wash:#E4ECE5;--ink:#2C3835;--muted:#56605C;--rust:#B94F2E;--marigold:#E3A63B;--coral:#EE8068;--sage:#9FBBA9;--blush:#EDB89E;--teal:#2A7570;--teal-deep:#1F6460;--forest:#2F4A46;--ochre:#8C5A12;--paper:#FFFCF7}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,Arial,Helvetica,sans-serif;font-size:17px;line-height:1.55}
@@ -25,7 +27,7 @@ h3.display{font-size:24px;margin-bottom:8px}
 p{margin:0 0 14px}
 p:last-child{margin-bottom:0}
 .wrap{width:min(1200px,100% - 32px);margin-inline:auto}
-.text-rust{color:var(--rust)}.text-plum{color:var(--plum)}.text-blue{color:var(--blue)}.text-green{color:var(--dkgreen)}
+.text-rust{color:var(--rust)}.text-teal{color:var(--teal-deep)}.text-forest{color:var(--forest)}.text-ochre{color:var(--ochre)}
 .lead{font-size:19px;color:var(--muted)}
 .prose{color:var(--muted);font-size:18px}
 .prose .strong,.strong{color:var(--ink);font-weight:500}
@@ -34,9 +36,12 @@ p:last-child{margin-bottom:0}
 .band-peach .eyebrow{background:var(--cream)}
 
 /* nav */
-.nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(59,42,74,.08)}
+.nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(44,56,53,.08)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:16px}
-.brand{font-size:26px;color:var(--ink);text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+.brand-flower{width:48px;height:48px}
+.brand-word{width:198px;height:34px}
+@media (max-width:380px){.brand-flower{width:40px;height:40px}.brand-word{width:163px;height:28px}}
 .menu ul{list-style:none;margin:0;padding:0;display:flex;gap:24px;align-items:center;font-weight:500}
 .menu a{color:var(--ink);text-decoration:none}
 .menu a.active{border-bottom:2px solid var(--rust-text);padding-bottom:2px}
@@ -44,7 +49,7 @@ p:last-child{margin-bottom:0}
 .nav-toggle span{display:block;height:3px;background:var(--ink);border-radius:2px}
 @media (max-width:1100px){
   .nav-toggle{display:flex}
-  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(59,42,74,.1);padding:12px 16px 20px}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid rgba(44,56,53,.1);padding:12px 16px 20px}
   .menu.open{display:block}
   .menu ul{flex-direction:column;align-items:flex-start;gap:14px}
   .menu ul li{width:100%}.menu a{display:block;padding:8px 0;font-size:18px}
@@ -53,9 +58,9 @@ p:last-child{margin-bottom:0}
 /* buttons */
 .btn{display:inline-block;padding:16px 28px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;color:var(--ink);border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
 .btn-accent{background:var(--marigold)}
-.btn-secondary{background:transparent;border:1.5px solid rgba(59,42,74,.55);font-weight:500}
+.btn-secondary{background:transparent;border:1.5px solid rgba(44,56,53,.55);font-weight:500}
 .btn-ink{background:var(--ink);color:var(--cream)}
-.c-marigold{background:var(--marigold)}.c-pink{background:var(--pink)}.c-sky{background:var(--sky)}.c-mint{background:var(--green)}
+.c-marigold{background:var(--marigold)}.c-blush{background:var(--blush)}.c-teal{background:var(--teal);color:var(--cream)}.c-sage{background:var(--sage)}
 .menu .btn{padding:12px 22px;font-size:15px}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
@@ -67,13 +72,13 @@ p:last-child{margin-bottom:0}
 }
 
 /* cards */
-.card{background:#fff;border-radius:28px;padding:32px;color:var(--ink)}
+.card{background:var(--paper);border-radius:28px;padding:32px;color:var(--ink)}
 .card p{color:var(--muted)}
 .card svg{color:var(--ink);margin-bottom:12px}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
-.shadow-mint{box-shadow:12px 12px 0 var(--green)}
-.shadow-pink{box-shadow:12px 12px 0 var(--pink)}
-.shadow-sky{box-shadow:12px 12px 0 var(--sky)}
+.shadow-sage{box-shadow:12px 12px 0 var(--sage)}
+.shadow-blush{box-shadow:12px 12px 0 var(--blush)}
+.shadow-teal{box-shadow:12px 12px 0 var(--teal)}
 .shadow-coral{box-shadow:12px 12px 0 var(--coral)}
 .shadow-ink{box-shadow:8px 8px 0 var(--ink)}
 .card-link{text-decoration:none;background:var(--cream);display:flex;flex-direction:column;gap:6px}
@@ -81,7 +86,7 @@ p:last-child{margin-bottom:0}
 
 /* sections */
 .band{padding:72px 0}
-.band-peach{background:var(--peach)}.band-mint{background:var(--mint)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
+.band-peach{background:var(--peach)}.band-sage{background:var(--sage-wash)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
 .two-col{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
 .two-col h2{margin-bottom:0}
 .grid{display:grid;gap:24px}
@@ -98,7 +103,7 @@ p:last-child{margin-bottom:0}
 .party-poster,.party-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}
 .party-video{opacity:0;transition:opacity .9s ease}
 .party-video.is-on{opacity:1}
-.party-card{position:relative;margin-top:-72px;max-width:720px;background:#fff;padding:40px 44px}
+.party-card{position:relative;margin-top:-72px;max-width:720px;background:var(--paper);padding:40px 44px}
 @media (max-width:900px){.party{padding-bottom:44px}.party-media{height:auto;min-height:0;aspect-ratio:4/3}.party-card{margin-top:-44px;max-width:none}}
 @media (min-width:600px) and (max-width:900px){.party-media{aspect-ratio:16/9}}
 
@@ -106,7 +111,7 @@ p:last-child{margin-bottom:0}
 .guide{display:grid;grid-template-columns:400px minmax(0,1fr);gap:64px;align-items:center}
 .guide-photo{position:relative;width:100%;max-width:400px;aspect-ratio:1/1;margin:0 auto}
 .guide-photo .petals{position:absolute;inset:0;width:100%;height:100%}
-.guide-photo img{position:absolute;left:16%;top:16%;width:68%;height:68%;max-width:none;object-fit:cover;object-position:46% 28%;border-radius:50%;border:6px solid var(--cream);box-shadow:0 6px 0 rgba(59,42,74,.12)}
+.guide-photo img{position:absolute;left:16%;top:16%;width:68%;height:68%;max-width:none;object-fit:cover;object-position:46% 28%;border-radius:50%;border:6px solid var(--cream);box-shadow:0 6px 0 rgba(44,56,53,.12)}
 .badge{position:absolute;left:50%;bottom:2%;translate:-50% 0;white-space:nowrap;background:var(--ink);color:var(--cream);border-radius:999px;padding:10px 18px;font-weight:700;font-size:15px}
 .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .pills span{background:var(--cream);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--rust-text)}
@@ -114,7 +119,7 @@ p:last-child{margin-bottom:0}
 
 /* steps */
 .steps .step{border-top:4px solid var(--marigold);padding-top:20px}
-.step-mint{border-top-color:var(--green)!important}.step-pink{border-top-color:var(--pink)!important}
+.step-sage{border-top-color:var(--sage)!important}.step-blush{border-top-color:var(--blush)!important}
 .step .num{font-size:64px;line-height:1;margin-bottom:8px}
 .step h3{font-size:24px;margin-bottom:8px}
 .step p{color:var(--muted)}
@@ -130,7 +135,7 @@ p:last-child{margin-bottom:0}
 
 /* faq */
 .faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.faq{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:0}
+.faq{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:0}
 .faq summary{cursor:pointer;padding:20px 24px;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--rust-text);flex:0 0 auto}
@@ -140,11 +145,13 @@ p:last-child{margin-bottom:0}
 @media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* footer */
-.footer{background:var(--ink);color:#E8DDF0;padding:40px 0;font-size:15px}
+.footer{background:var(--ink);color:#EAE3D6;padding:40px 0;font-size:15px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer-id{display:flex;align-items:center;gap:14px}
+.footer-flower{width:56px;height:56px;flex:0 0 auto;padding:4px;background:var(--cream);border-radius:50%}
 .footer-brand{font-size:22px;color:var(--marigold);margin-bottom:6px}
 .footer-links{display:flex;gap:18px;flex-wrap:wrap}
-.footer-links a{color:#E8DDF0;text-decoration:none}
+.footer-links a{color:#EAE3D6;text-decoration:none}
 
 /* phone refinements */
 .jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
@@ -162,12 +169,12 @@ p:last-child{margin-bottom:0}
 /* hero: full-bleed photo, darkened, centered copy, stacked buttons */
 .hero{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;text-align:center;min-height:min(86vh,760px);padding:64px 0;background:var(--ink);color:#fff;overflow:hidden}
 .hero-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(28,14,40,.45) 0%,rgba(28,14,40,.62) 55%,rgba(28,14,40,.8) 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,32,30,.45) 0%,rgba(24,32,30,.62) 55%,rgba(24,32,30,.8) 100%)}
 .hero > .wrap{width:min(860px,100% - 32px)}
 .hero-card{background:none;padding:0;box-shadow:none;border-radius:0;display:flex;flex-direction:column;align-items:center}
 .hero-title{font-size:clamp(38px,5vw,72px);line-height:1;color:#fff;margin:0 0 20px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .hero-title .text-rust{color:var(--marigold)}
-.hero .lead{color:#FFF4E3;font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:0 0 32px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .lead{color:#FBF5EB;font-size:clamp(18px,1.5vw,22px);max-width:34em;margin:0 0 32px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero .btn-row{margin:0;justify-content:center;gap:14px}
 .hero .btn{min-width:230px;text-align:center;padding:18px 30px}
 .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.75)}
@@ -181,7 +188,7 @@ p:last-child{margin-bottom:0}
 <body>
 <header class="nav">
 <div class="wrap nav-inner">
-<a class="brand display" href="index.html">Freckle Flower</a>
+<a class="brand" href="index.html" aria-label="Freckle Flower Event Planning, home"><img class="brand-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x, assets/img/brand/flower-144.webp 3x" width="48" height="48" alt=""><img class="brand-word" src="assets/img/brand/wordmark-68.webp" srcset="assets/img/brand/wordmark-34.webp 1x, assets/img/brand/wordmark-68.webp 2x, assets/img/brand/wordmark-102.webp 3x" width="198" height="34" alt="Freckle Flower"></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
 <nav id="menu" class="menu"><ul><li><a href="hobby-retreats.html">Hobby Retreats</a></li><li><a href="gaming-getaways.html">Gaming Getaways</a></li><li><a href="corporate-retreats.html">Corporate Retreats</a></li><li><a href="private-groups.html">Private Groups</a></li><li><a href="index.html#nikki">Nikki</a></li><li><a href="faq.html" class=active>FAQ</a></li><li><a class="btn btn-accent" href="index.html#book">Book a Weekend</a></li></ul></nav>
 </div>
@@ -193,9 +200,9 @@ p:last-child{margin-bottom:0}
 <p class="lead">Every retreat books at five people, happens at a venue picked for that weekend somewhere in Arkansas, and comes with a proposal that spells out what's included. Pick a weekend type below.</p>
 <div class="jump">
 <a class="btn c-marigold" href="#hobby">Hobby Retreats</a>
-<a class="btn c-pink" href="#gaming">Gaming Getaways</a>
-<a class="btn c-sky" href="#corporate">Corporate Retreats</a>
-<a class="btn c-mint" href="#private">Private Groups</a>
+<a class="btn c-blush" href="#gaming">Gaming Getaways</a>
+<a class="btn c-teal" href="#corporate">Corporate Retreats</a>
+<a class="btn c-sage" href="#private">Private Groups</a>
 </div>
 </div></section>
 <section id="hobby" class="band"><div class="wrap">
@@ -217,7 +224,7 @@ p:last-child{margin-bottom:0}
 </main>
 <footer class="footer">
 <div class="wrap footer-inner">
-<div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div>
+<div class="footer-id"><img class="footer-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async"><div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div></div>
 <nav class="footer-links"><a href="hobby-retreats.html">Hobby Retreats</a><a href="gaming-getaways.html">Gaming Getaways</a><a href="corporate-retreats.html">Corporate Retreats</a><a href="private-groups.html">Private Groups</a><a href="index.html#nikki">Nikki</a><a href="faq.html">FAQ</a></nav>
 <div>© 2026 Freckle Flower Event Planning</div>
 </div>

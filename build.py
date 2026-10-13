@@ -52,7 +52,7 @@ FAQ = {
   SLEEP_Q, RULES_Q, REFUND_Q],
 }
 
-NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-pink"),("corporate-retreats.html","Corporate Retreats","c-sky"),("private-groups.html","Private Groups","c-mint"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
+NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-blush"),("corporate-retreats.html","Corporate Retreats","c-teal"),("private-groups.html","Private Groups","c-sage"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
 
 FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
@@ -70,8 +70,10 @@ def head(title, desc, canonical, hero_name=None, hero_sizes="100vw"):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#FFF4E3">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FBF5EB">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 {pre}<link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>{FONT_CSS}{css}</style>
@@ -92,7 +94,7 @@ def nav(active):
     links = "".join(f'<li><a href="{h}"{" class=active" if h==active else ""}>{l}</a></li>' for h,l,_ in NAV)
     return f"""<header class="nav">
 <div class="wrap nav-inner">
-<a class="brand display" href="index.html">Freckle Flower</a>
+<a class="brand" href="index.html" aria-label="Freckle Flower Event Planning, home"><img class="brand-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x, assets/img/brand/flower-144.webp 3x" width="48" height="48" alt=""><img class="brand-word" src="assets/img/brand/wordmark-68.webp" srcset="assets/img/brand/wordmark-34.webp 1x, assets/img/brand/wordmark-68.webp 2x, assets/img/brand/wordmark-102.webp 3x" width="198" height="34" alt="Freckle Flower"></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
 <nav id="menu" class="menu"><ul>{links}<li><a class="btn btn-accent" href="index.html#book">Book a Weekend</a></li></ul></nav>
 </div>
@@ -105,7 +107,7 @@ def footer():
     return f"""</main>
 <footer class="footer">
 <div class="wrap footer-inner">
-<div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div>
+<div class="footer-id"><img class="footer-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async"><div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div></div>
 <nav class="footer-links">{links}</nav>
 <div>© 2026 Freckle Flower Event Planning</div>
 </div>
@@ -147,7 +149,7 @@ def included(h2, items):
 """
 
 def who(h2, text):
-    return f"""<section class="band band-mint"><div class="wrap two-col">
+    return f"""<section class="band band-sage"><div class="wrap two-col">
 <h2 class="display">{h2}</h2><div class="prose"><p>{text}</p></div>
 </div></section>
 """
@@ -265,9 +267,9 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 <p class="lead">Every retreat books at five people, happens at a venue picked for that weekend somewhere in Arkansas, and comes with a proposal that spells out what's included. Pick a weekend type below.</p>
 <div class="jump">
 <a class="btn c-marigold" href="#hobby">Hobby Retreats</a>
-<a class="btn c-pink" href="#gaming">Gaming Getaways</a>
-<a class="btn c-sky" href="#corporate">Corporate Retreats</a>
-<a class="btn c-mint" href="#private">Private Groups</a>
+<a class="btn c-blush" href="#gaming">Gaming Getaways</a>
+<a class="btn c-teal" href="#corporate">Corporate Retreats</a>
+<a class="btn c-sage" href="#private">Private Groups</a>
 </div>
 </div></section>
 """ + faq_block("hobby","hero-sewing","A woman smiling at her sewing machine","Hobby Retreats",FAQ["hobby"],"70% 40%") \
@@ -299,8 +301,8 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <section class="band"><div class="wrap">
 <div class="grid grid-3">
 <div class="card shadow-marigold"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 class="display">Time.</h3><p>Two full days with no meals to cook, no errands to run, and no one asking where anybody is. Morning to whenever.</p></div>
-<div class="card shadow-mint"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 22h8M12 18v4"/></svg><h3 class="display">Space.</h3><p>Big tables, good light, plenty of outlets, everything set up before anyone walks in. Bring the project. That's the whole packing list.</p></div>
-<div class="card shadow-pink"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M14 19.5a4.5 4.5 0 0 1 7.5-2.5"/></svg><h3 class="display">People.</h3><p>A room full of people who came for the same reason. Nobody has to explain what they're working on or why it matters.</p></div>
+<div class="card shadow-sage"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 22h8M12 18v4"/></svg><h3 class="display">Space.</h3><p>Big tables, good light, plenty of outlets, everything set up before anyone walks in. Bring the project. That's the whole packing list.</p></div>
+<div class="card shadow-blush"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M14 19.5a4.5 4.5 0 0 1 7.5-2.5"/></svg><h3 class="display">People.</h3><p>A room full of people who came for the same reason. Nobody has to explain what they're working on or why it matters.</p></div>
 </div>
 <p class="btn-row"><a class="btn btn-accent" href="#book">Book a Weekend</a></p>
 </div></section>
@@ -308,13 +310,13 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <h2 class="display">Four ways to get a weekend back.</h2>
 <div class="grid grid-2">
 <a class="card card-link shadow-ink" href="hobby-retreats.html"><h3 class="display text-rust">Hobby Retreats</h3><p>Quilting, sewing, scrapbooking, and craft weekends. Big tables, good light, and forty-eight hours with the project.</p><span class="more">Learn more</span></a>
-<a class="card card-link shadow-ink" href="gaming-getaways.html"><h3 class="display text-plum">Gaming Getaways</h3><p>Tabletop weekends for people whose campaign never gets past session three.</p><span class="more">Learn more</span></a>
-<a class="card card-link shadow-ink" href="corporate-retreats.html"><h3 class="display text-blue">Corporate Retreats</h3><p>Offsites run like a production, by someone who has spent twenty years opening shows on time.</p><span class="more">Learn more</span></a>
-<a class="card card-link shadow-ink" href="private-groups.html"><h3 class="display text-green">Private Groups</h3><p>Guilds, clubs, and friend groups bring the people. Nikki handles everything else.</p><span class="more">Learn more</span></a>
+<a class="card card-link shadow-ink" href="gaming-getaways.html"><h3 class="display text-teal">Gaming Getaways</h3><p>Tabletop weekends for people whose campaign never gets past session three.</p><span class="more">Learn more</span></a>
+<a class="card card-link shadow-ink" href="corporate-retreats.html"><h3 class="display text-forest">Corporate Retreats</h3><p>Offsites run like a production, by someone who has spent twenty years opening shows on time.</p><span class="more">Learn more</span></a>
+<a class="card card-link shadow-ink" href="private-groups.html"><h3 class="display text-ochre">Private Groups</h3><p>Guilds, clubs, and friend groups bring the people. Nikki handles everything else.</p><span class="more">Learn more</span></a>
 </div>
 </div></section>
 <section id="nikki" class="band band-peach"><div class="wrap guide">
-<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#F6B93B"/><circle cx="146.7" cy="146.7" r="33" fill="#FF8FD8"/><circle cx="100.0" cy="166.0" r="33" fill="#6FC3FF"/><circle cx="53.3" cy="146.7" r="33" fill="#3ECF8E"/><circle cx="34.0" cy="100.0" r="33" fill="#FF6B6B"/><circle cx="53.3" cy="53.3" r="33" fill="#F6B93B"/><circle cx="100.0" cy="34.0" r="33" fill="#FF8FD8"/><circle cx="146.7" cy="53.3" r="33" fill="#3ECF8E"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
+<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#E3A63B"/><circle cx="146.7" cy="146.7" r="33" fill="#EDB89E"/><circle cx="100.0" cy="166.0" r="33" fill="#2A7570"/><circle cx="53.3" cy="146.7" r="33" fill="#2F4A46"/><circle cx="34.0" cy="100.0" r="33" fill="#B94F2E"/><circle cx="53.3" cy="53.3" r="33" fill="#E3A63B"/><circle cx="100.0" cy="34.0" r="33" fill="#EDB89E"/><circle cx="146.7" cy="53.3" r="33" fill="#2F4A46"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
 <div class="prose">
 <h2 class="display">Twenty years of costumes, one very neglected garden.</h2>
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
@@ -323,12 +325,12 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <div class="pills"><span>Twenty years in costume design</span><span>Theatre and cosplay</span><span>The family's trip planner</span></div>
 </div>
 </div></section>
-<section class="band band-mint"><div class="wrap">
+<section class="band band-sage"><div class="wrap">
 <h2 class="display">Three steps between you and a weekend off.</h2>
 <div class="grid grid-3 steps">
 <div class="step step-marigold"><div class="display num text-rust">1</div><h3>Pick your retreat.</h3><p>Choose the weekend that fits and a date that works.</p></div>
-<div class="step step-mint"><div class="display num text-green">2</div><h3>Show up.</h3><p>The venue is booked, the room is set, and the snacks are out when you arrive. Bring the project and nothing else.</p></div>
-<div class="step step-pink"><div class="display num text-plum">3</div><h3>Recharge.</h3><p>Two days with the project and the people. Then home, rested in a way a vacation never quite manages.</p></div>
+<div class="step step-sage"><div class="display num text-ochre">2</div><h3>Show up.</h3><p>The venue is booked, the room is set, and the snacks are out when you arrive. Bring the project and nothing else.</p></div>
+<div class="step step-blush"><div class="display num text-teal">3</div><h3>Recharge.</h3><p>Two days with the project and the people. Then home, rested in a way a vacation never quite manages.</p></div>
 </div>
 <p class="btn-row"><a class="btn btn-accent" href="#book">Book a Weekend</a></p>
 </div></section>
@@ -341,7 +343,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <p><a class="link" href="faq.html">Read the FAQ</a></p>
 </div>
 </div></section>
-<section class="band band-peach"><div class="wrap"><div class="card lead-card shadow-sky">
+<section class="band band-peach"><div class="wrap"><div class="card lead-card shadow-teal">
 <div>
 <h2 class="display">The retreat packing list, from someone who has packed for a hundred productions.</h2>
 <p>A printable packing list for a weekend hobby retreat. What to bring, what to leave home, and the three things everyone forgets. Drop an email, get the PDF, and get first notice when a weekend opens up.</p>
