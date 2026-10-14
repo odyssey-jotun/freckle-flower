@@ -1,4 +1,4 @@
-:root{--terracotta:#C15A3C;--terracotta-deep:#B5523C;--cream:#F8EBD7;--cream-light:#F8EFE3;--marigold:#E0A62E;--teal:#2F7F7A;--teal-deep:#0F6B6B;--coral:#F7766D;--charcoal:#2E2E2E;--muted:#4A4A4A;--ink:var(--charcoal);--rust:var(--terracotta-deep);--rust-text:#A0472F;--on-terracotta:#FFFFFF;--card:var(--cream-light)}
+:root{--terracotta:#E4643C;--terracotta-deep:#CC4A2A;--cream:#FFF7EA;--cream-light:#FFFDF8;--marigold:#FFB81C;--teal:#0FA39A;--teal-deep:#00756E;--coral:#FF6B5B;--charcoal:#2E2E2E;--muted:#4A4A4A;--ink:var(--charcoal);--rust:var(--terracotta-deep);--rust-text:#B83A1E;--on-terracotta:#FFFFFF;--card:var(--cream-light)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,Arial,Helvetica,sans-serif;font-size:17px;line-height:1.55}

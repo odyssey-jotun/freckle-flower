@@ -70,7 +70,7 @@ def head(title, desc, canonical, hero_name=None, hero_sizes="100vw"):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#F8EBD7">
+<meta name="theme-color" content="#FFF7EA">
 <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -316,7 +316,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 </div>
 </div></section>
 <section id="nikki" class="band"><div class="wrap guide">
-<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#E0A62E"/><circle cx="146.7" cy="146.7" r="33" fill="#F7766D"/><circle cx="100.0" cy="166.0" r="33" fill="#2F7F7A"/><circle cx="53.3" cy="146.7" r="33" fill="#2E2E2E"/><circle cx="34.0" cy="100.0" r="33" fill="#C15A3C"/><circle cx="53.3" cy="53.3" r="33" fill="#E0A62E"/><circle cx="100.0" cy="34.0" r="33" fill="#F7766D"/><circle cx="146.7" cy="53.3" r="33" fill="#2F7F7A"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
+<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#FFB81C"/><circle cx="146.7" cy="146.7" r="33" fill="#FF6B5B"/><circle cx="100.0" cy="166.0" r="33" fill="#0FA39A"/><circle cx="53.3" cy="146.7" r="33" fill="#2E2E2E"/><circle cx="34.0" cy="100.0" r="33" fill="#E4643C"/><circle cx="53.3" cy="53.3" r="33" fill="#FFB81C"/><circle cx="100.0" cy="34.0" r="33" fill="#FF6B5B"/><circle cx="146.7" cy="53.3" r="33" fill="#0FA39A"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
 <div class="prose">
 <h2 class="display">Twenty years of costumes, one very neglected garden.</h2>
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
