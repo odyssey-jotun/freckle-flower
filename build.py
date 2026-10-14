@@ -52,7 +52,7 @@ FAQ = {
   SLEEP_Q, RULES_Q, REFUND_Q],
 }
 
-NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-coral"),("corporate-retreats.html","Corporate Retreats","c-teal"),("private-groups.html","Private Groups","c-terracotta"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
+NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.html","Gaming Getaways","c-ink"),("corporate-retreats.html","Corporate Retreats","c-teal"),("private-groups.html","Private Groups","c-terracotta"),("index.html#nikki","Nikki",""),("faq.html","FAQ","")]
 
 FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
@@ -70,7 +70,7 @@ def head(title, desc, canonical, hero_name=None, hero_sizes="100vw"):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#F8EBD7">
+<meta name="theme-color" content="#FFF7EA">
 <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -140,7 +140,7 @@ def stakes(h2, paras, color="rust"):
 </div></section>
 """
 
-SHADOWS = ["marigold","teal","coral","terracotta","marigold","teal"]
+SHADOWS = ["marigold","teal","ink","terracotta","marigold","teal"]
 def included(h2, items):
     cards = "".join(f'<div class="card shadow-{SHADOWS[i%6]}"><h3 class="display">{t}</h3><p>{d}</p></div>' for i,(t,d) in enumerate(items))
     return f"""<section class="band"><div class="wrap">
@@ -164,7 +164,7 @@ def faq_section(h2, items):
 """
 
 def cta_band(h2, label):
-    return f"""<section id="book" class="band band-coral"><div class="wrap cta-inner">
+    return f"""<section id="book" class="band band-marigold"><div class="wrap cta-inner">
 <h2 class="display">{h2}</h2><a class="btn btn-ink" href="mailto:[Email]?subject=Booking%20a%20weekend">{label}</a>
 </div></section>
 """
@@ -267,7 +267,7 @@ faq_html = head("FAQ | Freckle Flower Event Planning", "Everything people ask be
 <p class="lead">Every retreat books at five people, happens at a venue picked for that weekend somewhere in Arkansas, and comes with a proposal that spells out what's included. Pick a weekend type below.</p>
 <div class="jump">
 <a class="btn c-marigold" href="#hobby">Hobby Retreats</a>
-<a class="btn c-coral" href="#gaming">Gaming Getaways</a>
+<a class="btn c-ink" href="#gaming">Gaming Getaways</a>
 <a class="btn c-teal" href="#corporate">Corporate Retreats</a>
 <a class="btn c-terracotta" href="#private">Private Groups</a>
 </div>
@@ -292,7 +292,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <video class="party-video" muted playsinline preload="none" data-src="assets/group-720.mp4" data-src-small="assets/group-540.mp4"></video>
 <video class="party-video" muted playsinline preload="none" data-src="assets/craft-720.mp4" data-src-small="assets/craft-540.mp4"></video>
 </div>
-<div class="wrap"><div class="card party-card shadow-coral">
+<div class="wrap"><div class="card party-card shadow-terracotta">
 <span class="eyebrow">The good part</span>
 <h2 class="display">Two days without a to-do list.</h2>
 <p class="lead">Time, space, and people who get it. Everything else is handled before anyone walks in.</p>
@@ -302,7 +302,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <div class="grid grid-3">
 <div class="card shadow-marigold"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 class="display">Time.</h3><p>Two full days with no meals to cook, no errands to run, and no one asking where anybody is. Morning to whenever.</p></div>
 <div class="card shadow-teal"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 22h8M12 18v4"/></svg><h3 class="display">Space.</h3><p>Big tables, good light, plenty of outlets, everything set up before anyone walks in. Bring the project. That's the whole packing list.</p></div>
-<div class="card shadow-coral"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M14 19.5a4.5 4.5 0 0 1 7.5-2.5"/></svg><h3 class="display">People.</h3><p>A room full of people who came for the same reason. Nobody has to explain what they're working on or why it matters.</p></div>
+<div class="card shadow-terracotta"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M14 19.5a4.5 4.5 0 0 1 7.5-2.5"/></svg><h3 class="display">People.</h3><p>A room full of people who came for the same reason. Nobody has to explain what they're working on or why it matters.</p></div>
 </div>
 <p class="btn-row"><a class="btn btn-accent" href="#book">Book a Weekend</a></p>
 </div></section>
@@ -316,7 +316,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 </div>
 </div></section>
 <section id="nikki" class="band"><div class="wrap guide">
-<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#E0A62E"/><circle cx="146.7" cy="146.7" r="33" fill="#F7766D"/><circle cx="100.0" cy="166.0" r="33" fill="#2F7F7A"/><circle cx="53.3" cy="146.7" r="33" fill="#2E2E2E"/><circle cx="34.0" cy="100.0" r="33" fill="#C15A3C"/><circle cx="53.3" cy="53.3" r="33" fill="#E0A62E"/><circle cx="100.0" cy="34.0" r="33" fill="#F7766D"/><circle cx="146.7" cy="53.3" r="33" fill="#2F7F7A"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
+<div class="guide-photo"><svg class="petals" viewBox="0 0 200 200" aria-hidden="true"><circle cx="166.0" cy="100.0" r="33" fill="#FFB81C"/><circle cx="146.7" cy="146.7" r="33" fill="#D9601A"/><circle cx="100.0" cy="166.0" r="33" fill="#0FA39A"/><circle cx="53.3" cy="146.7" r="33" fill="#2E2E2E"/><circle cx="34.0" cy="100.0" r="33" fill="#D9601A"/><circle cx="53.3" cy="53.3" r="33" fill="#FFB81C"/><circle cx="100.0" cy="34.0" r="33" fill="#D9601A"/><circle cx="146.7" cy="53.3" r="33" fill="#0FA39A"/></svg>{img("nikki-headshot", "Nikki, smiling, red curly hair, olive jacket", widths=[380, 760], sizes="(max-width: 900px) 230px, 270px", w=1024, h=1024)}<span class="badge">Nikki, Freckle Flower</span></div>
 <div class="prose">
 <h2 class="display">Twenty years of costumes, one very neglected garden.</h2>
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
