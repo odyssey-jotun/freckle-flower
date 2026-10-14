@@ -13,7 +13,7 @@ Static marketing site for Nikki's weekend retreat business in Arkansas: hobby re
 
 - `brand/` holds Nikki's source files: two logo concepts and two brand boards. Never served.
 - The site uses Concept 3 (Patchwork Flower). `assets/img/brand/` has the flower and the "Freckle Flower" wordmark cut out on transparency, without the "Creative Co." line; the copy still says Freckle Flower Event Planning. Favicons are the flower.
-- Palette is a brighter version of her brand boards (same hues, more saturated, no pastel tints): terracotta #E4643C and #CC4A2A, cream #FFF7EA and #FFFDF8, marigold #FFB81C, teal #0FA39A and #00756E, coral #FF6B5B, charcoal #2E2E2E. Nikki asked for brighter on 2026-10-13. Text on terracotta #CC4A2A is white, text on teal #00756E is cream, text on coral and marigold is charcoal, and small terracotta text on cream is #B83A1E, all at 4.5:1 or better. The previous palette was her exact board hexes (#C15A3C, #B5523C, #F8EBD7, #F8EFE3, #E0A62E, #2F7F7A, #0F6B6B, #F7766D). All colors are variables at the top of `styles.css`.
+- Palette is a brighter version of her brand boards (same hues, more saturated, no pastel tints): terracotta #E4643C and #CC4A2A, cream #FFF7EA and #FFFDF8, marigold #FFB81C, teal #0FA39A and #00756E, charcoal #2E2E2E. No coral or salmon: Marc and Nikki both rejected it on 2026-10-13. Nikki asked for brighter on 2026-10-13. Text on terracotta #CC4A2A is white, text on teal #00756E is cream, text on marigold is charcoal, and small terracotta text on cream is #B83A1E, all at 4.5:1 or better. The previous palette was her exact board hexes (#C15A3C, #B5523C, #F8EBD7, #F8EFE3, #E0A62E, #2F7F7A, #0F6B6B, #F7766D). All colors are variables at the top of `styles.css`.
 
 ## Rules baked into the copy
 

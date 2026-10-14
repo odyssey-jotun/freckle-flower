@@ -14,7 +14,7 @@
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
-:root{--terracotta:#E4643C;--terracotta-deep:#CC4A2A;--cream:#FFF7EA;--cream-light:#FFFDF8;--marigold:#FFB81C;--teal:#0FA39A;--teal-deep:#00756E;--coral:#FF6B5B;--charcoal:#2E2E2E;--muted:#4A4A4A;--ink:var(--charcoal);--rust:var(--terracotta-deep);--rust-text:#B83A1E;--on-terracotta:#FFFFFF;--card:var(--cream-light)}
+:root{--terracotta:#E4643C;--terracotta-deep:#CC4A2A;--cream:#FFF7EA;--cream-light:#FFFDF8;--marigold:#FFB81C;--teal:#0FA39A;--teal-deep:#00756E;--charcoal:#2E2E2E;--muted:#4A4A4A;--ink:var(--charcoal);--rust:var(--terracotta-deep);--rust-text:#B83A1E;--on-terracotta:#FFFFFF;--card:var(--cream-light)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Karla,Arial,Helvetica,sans-serif;font-size:17px;line-height:1.55}
@@ -61,7 +61,7 @@ p:last-child{margin-bottom:0}
 .btn-accent{background:var(--marigold)}
 .btn-secondary{background:transparent;border:1.5px solid rgba(46,46,46,.55);font-weight:500}
 .btn-ink{background:var(--ink);color:var(--cream)}
-.c-marigold{background:var(--marigold)}.c-coral{background:var(--coral)}.c-teal{background:var(--teal-deep);color:var(--cream)}.c-terracotta{background:var(--terracotta-deep);color:var(--on-terracotta)}
+.c-marigold{background:var(--marigold)}.c-ink{background:var(--ink);color:var(--cream)}.c-teal{background:var(--teal-deep);color:var(--cream)}.c-terracotta{background:var(--terracotta-deep);color:var(--on-terracotta)}
 .menu .btn{padding:12px 22px;font-size:15px}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 .link{font-weight:700;text-decoration:none;color:var(--rust-text);border-bottom:2px solid var(--rust-text)}
@@ -79,7 +79,7 @@ p:last-child{margin-bottom:0}
 .shadow-marigold{box-shadow:12px 12px 0 var(--marigold)}
 .shadow-terracotta{box-shadow:12px 12px 0 var(--terracotta)}
 .shadow-teal{box-shadow:12px 12px 0 var(--teal)}
-.shadow-coral{box-shadow:12px 12px 0 var(--coral)}
+
 .shadow-ink{box-shadow:8px 8px 0 var(--ink)}
 .card-link{text-decoration:none;background:var(--cream);display:flex;flex-direction:column;gap:6px}
 .card-link .more{font-weight:700;margin-top:auto}
@@ -89,7 +89,7 @@ p:last-child{margin-bottom:0}
 .band-teal{background:var(--teal-deep);color:var(--cream)}.band-terracotta{background:var(--terracotta-deep);color:var(--on-terracotta)}
 .band-teal .display,.band-teal .prose,.band-teal .prose .strong,.band-teal h2.text-rust{color:var(--cream)}
 .band-terracotta .display,.band-terracotta .prose,.band-terracotta .prose .strong,.band-terracotta .step p,.band-terracotta .step h3{color:var(--on-terracotta)}
-.band-teal .card .display,.band-terracotta .card .display{color:var(--charcoal)}.band-marigold{background:var(--marigold)}.band-coral{background:var(--coral)}
+.band-teal .card .display,.band-terracotta .card .display{color:var(--charcoal)}.band-marigold{background:var(--marigold)}
 .two-col{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
 .two-col h2{margin-bottom:0}
 .grid{display:grid;gap:24px}
@@ -210,7 +210,7 @@ p:last-child{margin-bottom:0}
 <h2 class="display text-rust">Six adults. Six calendars. One campaign.</h2><div class="prose"><p>Every gaming group has the same problem. A campaign that meets once every two months when it meets at all. The army is half painted. The deck hasn't been sleeved. The board game that takes four hours never comes out because nobody has four hours.</p><p>A weekend fixes the math. Two full days, everyone in the same room, and nothing else on the calendar.</p></div>
 </div></section>
 <section class="band"><div class="wrap">
-<h2 class="display">What's included</h2><div class="grid grid-3"><div class="card shadow-marigold"><h3 class="display">A venue picked for the game</h3><p>Room for the tables, light to see the dice, and a host who doesn't mind a game running late.</p></div><div class="card shadow-teal"><h3 class="display">Tables set for the campaign</h3><p>Whatever the group's game needs, set up before anyone arrives, as listed in the proposal.</p></div><div class="card shadow-coral"><h3 class="display">A painting station if the group wants one</h3><p>Light, water, and drying space. Bring the paints and the army.</p></div><div class="card shadow-terracotta"><h3 class="display">Snacks and drinks, stocked</h3><p>Nikki brings them, as listed in the proposal. Nobody leaves the table for a run.</p></div><div class="card shadow-marigold"><h3 class="display">Catering around the game</h3><p>Arranged for that weekend, timed to the session, and spelled out in the proposal. Never in the middle of a turn.</p></div><div class="card shadow-teal"><h3 class="display">The proposal</h3><p>One document with the venue, what's included, and the house rules.</p></div></div>
+<h2 class="display">What's included</h2><div class="grid grid-3"><div class="card shadow-marigold"><h3 class="display">A venue picked for the game</h3><p>Room for the tables, light to see the dice, and a host who doesn't mind a game running late.</p></div><div class="card shadow-teal"><h3 class="display">Tables set for the campaign</h3><p>Whatever the group's game needs, set up before anyone arrives, as listed in the proposal.</p></div><div class="card shadow-ink"><h3 class="display">A painting station if the group wants one</h3><p>Light, water, and drying space. Bring the paints and the army.</p></div><div class="card shadow-terracotta"><h3 class="display">Snacks and drinks, stocked</h3><p>Nikki brings them, as listed in the proposal. Nobody leaves the table for a run.</p></div><div class="card shadow-marigold"><h3 class="display">Catering around the game</h3><p>Arranged for that weekend, timed to the session, and spelled out in the proposal. Never in the middle of a turn.</p></div><div class="card shadow-teal"><h3 class="display">The proposal</h3><p>One document with the venue, what's included, and the house rules.</p></div></div>
 </div></section>
 <section class="band band-terracotta"><div class="wrap two-col">
 <h2 class="display">Who comes</h2><div class="prose"><p>Established groups who want a full weekend together for once. Solo players who want to find a table. Painters who want two uninterrupted days at the bench. Anyone who has said "we should really play more" and meant it.</p></div>
@@ -218,7 +218,7 @@ p:last-child{margin-bottom:0}
 <section class="band"><div class="wrap">
 <h2 class="display">Gaming weekend questions</h2><div class="faq-grid"><details class="faq"><summary>What can we play?</summary><p>Anything that fits on a table. Warhammer, Magic, D&amp;D, Pathfinder, board games, whatever the group brings.</p></details><details class="faq"><summary>Is there a minimum number of people?</summary><p>Yes. A retreat books at five. Get five people together, pick a weekend, and it's on.</p></details><details class="faq"><summary>What does a weekend cost?</summary><p>Every weekend is priced for the group. Headcount, the venue, and what the room needs all move the number, so the quote comes after a quick conversation and lands in the proposal.</p></details><details class="faq"><summary>Do you provide tables and terrain?</summary><p>Nikki sets up the tables and whatever the group needs for its game, as listed in the proposal. Bring the terrain the campaign depends on and say so up front, so the room is ready for it.</p></details><details class="faq"><summary>Is there a painting station?</summary><p>If the group wants one, it goes in the proposal: light, water, and drying space. Bring the paints and the army.</p></details><details class="faq"><summary>Can a game stay set up overnight?</summary><p>Depends on the venue, and most will let a table sit. Say it matters and Nikki picks a place where the game can stay up until breakfast.</p></details><details class="faq"><summary>What about food during a long game?</summary><p>Snacks and drinks are stocked so nobody has to leave the table. Catering works like the venue: arranged for that weekend, timed around the game, and spelled out in the proposal.</p></details><details class="faq"><summary>Do we sleep there?</summary><p>Depends on the venue. Some retreats are at a house with beds for everyone. Some are at a workspace with lodging nearby. The proposal says which.</p></details><details class="faq"><summary>What are the house rules?</summary><p>Every venue has its own. Check-in, quiet hours, parking, pets, all of it comes from the property and gets passed along in the proposal so nothing is a surprise.</p></details><details class="faq"><summary>What if someone has to cancel?</summary><p>Once a weekend is booked, it's booked. There are no refunds, so get the five confirmed before booking.</p></details></div>
 </div></section>
-<section id="book" class="band band-coral"><div class="wrap cta-inner">
+<section id="book" class="band band-marigold"><div class="wrap cta-inner">
 <h2 class="display">Roll for a whole weekend.</h2><a class="btn btn-ink" href="mailto:[Email]?subject=Booking%20a%20weekend">Book a Gaming Weekend</a>
 </div></section>
 </main>
