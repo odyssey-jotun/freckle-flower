@@ -57,6 +57,9 @@ NAV = [("hobby-retreats.html","Hobby Retreats","c-marigold"),("gaming-getaways.h
 FONT_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/fraunces-800.woff2) format('woff2')}
 @font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url(assets/fonts/karla-latin.woff2) format('woff2')}
 """
+SCHEMA = """
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Freckle Flower Event Planning","description":"Weekend retreats in Arkansas for hobby groups, gamers, companies, and private groups, planned by Nikki out of Little Rock.","address":{"@type":"PostalAddress","addressLocality":"Little Rock","addressRegion":"AR","addressCountry":"US"},"areaServed":{"@type":"State","name":"Arkansas"},"founder":{"@type":"Person","name":"Nikki"}}</script>"""
+
 def head(title, desc, canonical, hero_name=None, hero_sizes="100vw"):
     css = open(os.path.join(PUB, "styles.css")).read()
     pre = ""
@@ -76,7 +79,7 @@ def head(title, desc, canonical, hero_name=None, hero_sizes="100vw"):
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 {pre}<link rel="preload" href="assets/fonts/fraunces-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
-<style>{FONT_CSS}{css}</style>
+<style>{FONT_CSS}{css}</style>{SCHEMA if canonical == "index.html" else ""}
 </head>
 <body>
 """
@@ -107,7 +110,7 @@ def footer():
     return f"""</main>
 <footer class="footer">
 <div class="wrap footer-inner">
-<div class="footer-id"><img class="footer-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async"><div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Arkansas</div></div></div>
+<div class="footer-id"><img class="footer-flower" src="assets/img/brand/flower-96.webp" srcset="assets/img/brand/flower-48.webp 1x, assets/img/brand/flower-96.webp 2x" width="56" height="56" alt="" loading="lazy" decoding="async"><div><div class="display footer-brand">Freckle Flower Event Planning</div><div>Weekend retreats in Arkansas. [Email] · [Phone] · Little Rock, Arkansas</div></div></div>
 <nav class="footer-links">{links}</nav>
 <div>© 2026 Freckle Flower Event Planning</div>
 </div>
@@ -322,7 +325,7 @@ home = head("Freckle Flower Event Planning | Weekend Retreats in Arkansas", "Wee
 <p>I'm Nikki. I spent twenty years as a costume designer for theatre and cosplay, which means I've spent most of my adult life in a workroom full of people building something together, up to our elbows in fabric, losing track of time. I know what that room does for a person. I also know what happens when life crowds it out. My own garden could tell you.</p>
 <p>I'm also the planner in my family. Airbnbs for the trips, venues for the parties, the whole itinerary. Somewhere along the way I noticed that planning an event is a lot like planning a play. It's a full production. There are a hundred moving parts and deadlines that have to be met, even when they aren't. Opening night doesn't move. Theatre taught me how to get everything ready anyway.</p>
 <p class="strong">So that's my job here. I run the production. You show up and do the thing you love.</p>
-<div class="pills"><span>Twenty years in costume design</span><span>Theatre and cosplay</span><span>The family's trip planner</span></div>
+<div class="pills"><span>Twenty years in costume design</span><span>Theatre and cosplay</span><span>The family's trip planner</span><span>Based in Little Rock</span></div>
 </div>
 </div></section>
 <section class="band band-terracotta"><div class="wrap">
